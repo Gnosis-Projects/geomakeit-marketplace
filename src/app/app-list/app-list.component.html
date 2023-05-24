@@ -1,1 +1,15 @@
-<p>app-list works!</p>
+<header>
+    <img src="./assets/img/header/Header.jpg" alt="Banner" class="header-img"> 
+    <img src="./assets/img/GM_Studio_Logo.png" width="400" alt="studio-logo" class="logo-img" />
+   </header>
+   
+<main>
+    <app-app-item *ngFor="let app of apps" [app]="app"></app-app-item>
+</main>
+
+<footer>
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      This is the GeoMakeIt Marketplace Footer
+    </div>
+  </footer>
+  

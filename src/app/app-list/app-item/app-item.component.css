@@ -1,0 +1,22 @@
+.app-item {
+    border: 0.1rem solid rgb(209, 101, 143);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem rgb(109, 54, 54);
+  }
+  
+  .app_img{
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  

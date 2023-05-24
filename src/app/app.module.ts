@@ -6,11 +6,13 @@ import { createCustomElement } from '@angular/elements';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppListComponent } from './app-list/app-list.component';
+import { AppItemComponent } from './app-list/app-item/app-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppListComponent
+    AppListComponent,
+    AppItemComponent
   ],
   imports: [
     BrowserModule,
