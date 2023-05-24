@@ -4,6 +4,8 @@
     margin: 1rem;
     border-radius: 1rem;
     box-shadow: 0.1rem 0.1rem 0.3rem rgb(109, 54, 54);
+    background-color:rgb(255, 255, 255);
+    width: 30rem;
   }
   
   .app_img{

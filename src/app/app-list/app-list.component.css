@@ -48,9 +48,3 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
   }  
-  app-app-item {
-    display: block;
-    background-color: white;
-    height: 15rem;
-    width: 38rem;
-   }

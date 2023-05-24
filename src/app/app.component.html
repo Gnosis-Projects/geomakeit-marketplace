@@ -1,1 +1,17 @@
-<app-app-list></app-app-list>
+<header>
+  <img src="./assets/img/header/Header.jpg" alt="Banner" class="header-img"> 
+  <img src="./assets/img/GM_Studio_Logo.png" width="400" alt="studio-logo" class="logo-img" />
+</header>
+  
+  <!-- Use an *ngIf directive to conditionally display the app-list component or the details component based on the showList property from the app-list component -->
+<main>
+  <app-app-list *ngIf="appListComponent.showList"></app-app-list>
+  <app-details *ngIf="!appListComponent.showList"></app-details>
+</main>
+  
+<footer>
+  <div class="col-12 d-flex justify-content-center align-items-center">
+    This is the GeoMakeIt Marketplace Footer
+  </div>
+</footer>
+ 

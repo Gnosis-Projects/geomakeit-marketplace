@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppListComponent } from './app-list/app-list.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'geomakeit-marketplace';
+  constructor(public appListComponent: AppListComponent) { }
+
 }
