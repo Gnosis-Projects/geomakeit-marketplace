@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { SelectorService } from '../services/selector.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { SelectorService } from '../services/selector.service';
 })
 export class DetailsComponent implements OnInit {
   selectedApp: any;
-  
+
   constructor(private appService: SelectorService) { }
   
   ngOnInit(): void {
-  // Subscribe to the selectedApp$ observable from the appService and assign it to the selectedApp variable
-  this.appService.selectedApp$.subscribe(app => {
-  this.selectedApp = app;
-  });
-  }
+    // Subscribe to the selectedApp$ observable from the appService and assign it to the selectedApp variable
+        this.appService.selectedApp$.subscribe(app => {
+        this.selectedApp = app;
+      });
+
+    }
+      
   }

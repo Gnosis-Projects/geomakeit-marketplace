@@ -5,8 +5,8 @@
   
   <!-- Use an *ngIf directive to conditionally display the app-list component or the details component based on the showList property from the app-list component -->
 <main>
-  <app-app-list *ngIf="appListComponent.showList"></app-app-list>
-  <app-details *ngIf="!appListComponent.showList"></app-details>
+  <app-app-list (showListChange)="onShowListChange($event)" *ngIf="showList"></app-app-list>
+  <app-details *ngIf="!showList"></app-details>
 </main>
   
 <footer>

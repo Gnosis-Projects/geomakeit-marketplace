@@ -1,25 +1,125 @@
-.app-screen {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+.app-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vw;
+  background-color: white; 
+  border-radius: 0.9rem;
+  box-shadow: 0 0 10px rgba(185, 108, 144, 0.301);
   }
   
-  img {
-    width: 200px;
-    height: 200px;
+  .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  
   }
   
-  h1 {
-    font-size: 24px;
+  .app-icon {
+  width: 6.25rem;
+  height: 6.25rem;
   }
   
-  p {
-    font-size: 18px;
+  .app-header h1 {
+  font-size: 2.25rem;
   }
   
-  button {
-    background-color: green;
-    color: white;
-    font-size: 20px;
+  .app-header p {
+  font-size: 1.5rem;
   }
   
+  .app-header button {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.625rem;
+  background-color: green;
+  color: white;
+  }
+  
+  .app-description {
+  width: 80%;
+  }
+  
+  .app-description h2 {
+  font-size: 1.75rem;
+  }
+  
+  .app-description p {
+  font-size: 1.125rem;
+  }
+  
+  .app-screenshots {
+  width: 50%;
+  }
+  
+  .app-screenshots h2 {
+  font-size:1.75rem; 
+  }
+  
+  .app-reviews {
+  width:80%; 
+  }
+  
+  .app-reviews h2 {
+  font-size:1.75rem; 
+  }
+  
+  .filters {
+  display:flex; 
+  }
+  
+  .reviews {
+  display:flex; 
+  flex-direction:column; 
+  }
+  
+  .review {
+  display:flex; 
+  }
+  
+  .review p {
+  margin-right:0.625rem; 
+  }
+  
+  .app-details {
+  width:80%; 
+  }
+  
+  .app-details h2 {
+  font-size:1.75rem; 
+  }
+  
+  .app-details ul {
+  list-style:none; 
+  display:flex; 
+  flex-wrap:wrap; 
+  }
+  
+  .app-details li {
+  font-size:1.125rem; 
+  margin-right:1.25rem; 
+  margin-bottom:0.625rem; 
+  }
+  
+  .app-permissions {
+  width:80%; 
+  }
+  
+  .app-permissions h2 {
+  font-size:1.75rem; 
+  }
+  
+  .app-permissions ul {
+  list-style:none; 
+  display:flex; 
+  flex-wrap:wrap; 
+  }
+  
+  .app-permissions li {
+  font-size:1.125rem; 
+  margin-right:1.25rem; 
+  margin-bottom:0.625rem; 
+  
+ }
+ 

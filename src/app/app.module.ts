@@ -9,6 +9,8 @@ import { AppListComponent } from './app-list/app-list.component';
 import { AppItemComponent } from './app-list/app-item/app-item.component';
 import { DetailsComponent } from './details/details.component';
 import { SelectorService } from './services/selector.service';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { SelectorService } from './services/selector.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    NgImageSliderModule
+     ],
   providers: [AppListComponent,SelectorService],
   bootstrap: [AppComponent]
 })

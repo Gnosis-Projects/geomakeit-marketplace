@@ -1,3 +1,49 @@
-<!-- Use interpolation to display the selected app's name and icon -->
-<h3>{{ selectedApp.name }}</h3>
-<img [src]="selectedApp.icon" alt="App icon">
+<div class="app-details">
+    <div class="app-header">
+      <img [src]="selectedApp.icon" alt="app icon" class="app-icon">
+      <h1>{{selectedApp.name}}</h1>
+      <p>{{selectedApp.rating}} ★</p>
+      <button>Install</button>
+    </div>
+    <div class="app-description">
+      <h2>Description</h2>
+      <p>{{selectedApp.description}}</p>
+    </div>
+    
+    <div class="app-screenshots">
+      <h2>Screenshots</h2>
+      <img *ngFor="let screenshot of selectedApp.screenshots" [src]="screenshot" alt="app screenshot">
+    </div>
+      
+    <div class="app-reviews">
+      <h2>Ratings and reviews</h2>
+      <div class="filters">
+      </div>
+      <div class="reviews">
+        <div *ngFor="let review of selectedApp.reviews" class="review">
+          <p>{{review.user}}</p>
+          <p>{{review.rating}} ★</p>
+          <p>{{review.comment}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="app-details">
+      <h2>Details</h2>
+      <ul>
+        <li>Size: {{selectedApp.size}}</li>
+        <li>Version: {{selectedApp.version}}</li>
+        <li>Category: {{selectedApp.category}}</li>
+        <li>Developer: {{selectedApp.developer}}</li>
+        <!-- add more details here -->
+      </ul>
+    </div>
+    <div class="app-permissions">
+      <h2>Permissions</h2>
+      <ul>
+        <!-- add permissions here -->
+        <li *ngFor="let permission of selectedApp.permissions">{{permission}}</li>
+      </ul>
+    </div>
+  </div>
+  
+  
