@@ -1,1 +1,6 @@
-<app-app-item *ngFor="let app of apps" [app]="app" (click)="selectApp(app)"></app-app-item>
+<div *ngFor="let category of categories">
+     <h3>{{category}}</h3> 
+     <div style="display: flex; overflow-x: auto; white-space: nowrap; align-items: center;">
+         <app-app-item *ngFor="let app of apps | categoryFilter:category" [app]="app" (click)="selectApp(app)"></app-app-item> 
+     </div> 
+</div>

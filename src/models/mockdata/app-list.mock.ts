@@ -70,7 +70,7 @@ export const appList = [
       ],
       size: "121 MB",
       version: "1.15.1",
-      category: "Entertainment",
+      category: "Lifestyle",
       developer: "Disney Electronic Content Inc.",
       permissions: [
         "Access to internet connection",
@@ -106,7 +106,7 @@ export const appList = [
       ],
       size: "25 MB",
       version: "5.18.4",
-      category: "Education",
+      category: "Lifestyle",
       developer: "Duolingo Inc.",
       permissions:[
         "Access to microphone",
@@ -142,12 +142,72 @@ export const appList = [
      ], 
      size:"56 MB", 
      version:"1.3.2", 
-     category:"Health & Fitness", 
+     category:"Lifestyle", 
      developer:"Pear Inc.", 
      permissions:[
        "Access to health data", 
        "Access to notifications"
      ]
-   }
+   },
+   {
+
+    name: "Spotify",
+    icon: "./assets/img/samples/spotify.png",
+    rating: 4.6,
+    description: "Spotify is the world’s largest music streaming service. With Spotify, you can listen to millions of songs and podcasts for free.",
+    screenshots: [ "./assets/img/samples/spotify1.png",
+                   "./assets/img/samples/spotify2.png",
+                   "./assets/img/samples/spotify3.png"],
+     reviews: [ { 
+                  user: "Zoe",
+                  rating: 5, 
+                  comment: "I love Spotify, it has all the music I like and more." 
+                },
+                { 
+                  user: "Evan", 
+                  rating: 4, 
+                  comment: "It’s a great app, but sometimes it doesn’t sync well with my devices." 
+                },
+                { 
+                  user: "Lucas", 
+                  rating: 3, 
+                  comment: "It’s okay, but I don’t like the ads and the premium subscription is too expensive." 
+                } ],
+     size: "34 MB",
+     version: "8.6.64.1081",
+     category: "Health & Fitness", 
+     developer: "Spotify Ltd.", 
+     permissions: [ "Access to internet connection", "Access to storage", "Access to microphone" ] 
+
+    },
+    { 
+      name: "Instagram", 
+      icon: "./assets/img/samples/instagram.png", 
+      rating: 4.4, 
+      description: "Instagram is a social media app that lets you connect with your friends and family, share your photos and videos, and discover new content and people.", 
+      screenshots: [ "./assets/img/samples/instagram1.png", 
+                     "./assets/img/samples/instagram2.png",
+                     "./assets/img/samples/instagram3.png" 
+                   ], 
+      reviews: [ { 
+                   user: "Ava", 
+                   rating: 5, 
+                   comment: "I love Instagram, it’s my favorite app to post and see what others are up to." 
+                 }, 
+                 { 
+                   user: "Ethan", 
+                   rating: 4, 
+                   comment: "It’s a good app, but sometimes it crashes and has bugs." 
+                 }, 
+                 { 
+                   user: "Isabella", 
+                   rating: 2, 
+                   comment: "It’s a bad app, it has too many ads and fake accounts." 
+                 } ], 
+       size: "32 MB", 
+       version: "207.0.0.39.120", 
+       category: "Health & Fitness", 
+       developer: "Instagram Inc.", 
+       permissions:[ "Access to internet connection", "Access to camera", "Access to storage" ] }
   ]
   

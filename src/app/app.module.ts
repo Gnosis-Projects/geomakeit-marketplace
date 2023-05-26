@@ -9,7 +9,8 @@ import { AppListComponent } from './app-list/app-list.component';
 import { AppItemComponent } from './app-list/app-item/app-item.component';
 import { DetailsComponent } from './details/details.component';
 import { SelectorService } from './services/selector.service';
-import { NgImageSliderModule } from 'ng-image-slider';
+import { CategoryFilterPipe } from './shared/pipes/category-filter.pipe';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 @NgModule({
@@ -17,12 +18,13 @@ import { NgImageSliderModule } from 'ng-image-slider';
     AppComponent,
     AppListComponent,
     AppItemComponent,
-    DetailsComponent
+    DetailsComponent,
+    CategoryFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgImageSliderModule
+    SlickCarouselModule
      ],
   providers: [AppListComponent,SelectorService],
   bootstrap: [AppComponent]

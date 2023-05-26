@@ -1,50 +1,5 @@
-header {
-    background-color: blue;
-    color: white;
-    font-size: 2rem;
-    top: 0; 
-    left: 0; 
-    width: 100vw; 
-    height: 12rem; 
-    position: fixed; 
-    margin: 0; 
-
-  }
-  
-  main {
-    margin-top: 13rem;
-    margin-bottom: 5rem;
-    background-image: url("src/assets/img/main/Background-Map.png"); 
-    background-size: cover; 
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-  }
-  
-  
-  footer {
-    left: 0;
-    background-color: rgb(207, 206, 206); 
-    color: black;
-    font-size: 1.5rem;
-    padding: 1rem; 
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-  }
-  
-  .header-img {
-    width: 100%;
-    height: 12rem;
-    object-fit: cover;
-  }
-  
-  .logo-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }  
+.app-row {
+  overflow-x: auto;
+  white-space: nowrap;
+  align-items: center;
+ }

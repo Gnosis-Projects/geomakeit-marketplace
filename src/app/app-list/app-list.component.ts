@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit,Output,EventEmitter } from '@angular/core';
 import { SelectorService } from '../services/selector.service';
 import { appList } from 'src/models/mockdata/app-list.mock';
-
+import { App } from 'src/models/interfaces/app-interface';
 
 // Add the @Injectable decorator and specify the providedIn option as 'root'
 @Injectable({
@@ -18,15 +18,20 @@ export class AppListComponent implements OnInit {
 
  apps: any;
  showList: boolean = true;
+ // Add a new property to store the categories
+ categories!:string [];
 
- constructor(private appService: SelectorService) { }
+ constructor(private appService: SelectorService) { 
+ }
 
  ngOnInit(): void {
  // Mock data
  this.apps = appList
  // Initialize showList to true
  this.showList = true;
- }
+ // Get the unique categories from the apps array
+ this.categories = [...new Set(this.apps.map((app: App) => app.category))] as string[];
+}
 
  selectApp(app: any) {
  // Set showList to false when an app is selected

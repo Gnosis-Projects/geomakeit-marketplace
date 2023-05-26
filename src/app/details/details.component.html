@@ -12,8 +12,13 @@
     
     <div class="app-screenshots">
       <h2>Screenshots</h2>
-      <img *ngFor="let screenshot of selectedApp.screenshots" [src]="screenshot" alt="app screenshot">
-    </div>
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+       <div ngxSlickItem *ngFor="let screenshot of selectedApp.screenshots" class="slide">
+        <img [src]="screenshot" alt="app screenshot">
+       </div>
+      </ngx-slick-carousel>
+     </div>
+     
       
     <div class="app-reviews">
       <h2>Ratings and reviews</h2>
