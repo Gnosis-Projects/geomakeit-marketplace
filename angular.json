@@ -24,8 +24,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["node_modules/slick-carousel/slick/slick.scss",
-            "node_modules/slick-carousel/slick/slick-theme.scss",
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
               "src/styles.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js",

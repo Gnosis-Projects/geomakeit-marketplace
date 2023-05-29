@@ -1,54 +1,68 @@
 <div class="app-details">
-    <div class="app-header">
-      <img [src]="selectedApp.icon" alt="app icon" class="app-icon">
+  <div class="app-header">
+    <img [src]="selectedApp.icon" alt="app icon" class="app-icon">
+    <div class="app-info"> 
       <h1>{{selectedApp.name}}</h1>
-      <p>{{selectedApp.rating}} ★</p>
-      <button>Install</button>
+      <p>{{selectedApp.developer}}</p> 
+      <p>{{selectedApp.rating}} ★ (10213 Downloads)</p> 
+      <button>Download {{selectedApp.size}}</button>
     </div>
-    <div class="app-description">
-      <h2>Description</h2>
-      <p>{{selectedApp.description}}</p>
-    </div>
-    
-    <div class="app-screenshots">
-      <h2>Screenshots</h2>
-      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-       <div ngxSlickItem *ngFor="let screenshot of selectedApp.screenshots" class="slide">
-        <img [src]="screenshot" alt="app screenshot">
-       </div>
-      </ngx-slick-carousel>
+  </div>
+  <div class="app-description">
+    <h2>Description</h2>
+    <p>{{selectedApp.description}}</p>
+  </div>
+  
+  <div class="app-screenshots">
+    <h2>Screenshots</h2>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+     <div ngxSlickItem *ngFor="let screenshot of selectedApp.screenshots" class="slide">
+      <img [src]="screenshot" alt="app screenshot">
      </div>
-     
-      
+    </ngx-slick-carousel>
+   </div>
+    
+   
+   <div style="width: 80%">
+    <h2>Reviews</h2>
+  </div>
+  <div style="width: 80%">
     <div class="app-reviews">
-      <h2>Ratings and reviews</h2>
-      <div class="filters">
-      </div>
-      <div class="reviews">
-        <div *ngFor="let review of selectedApp.reviews" class="review">
-          <p>{{review.user}}</p>
-          <p>{{review.rating}} ★</p>
-          <p>{{review.comment}}</p>
-        </div>
-      </div>
-    </div>
-    <div class="app-details">
-      <h2>Details</h2>
       <ul>
-        <li>Size: {{selectedApp.size}}</li>
-        <li>Version: {{selectedApp.version}}</li>
-        <li>Category: {{selectedApp.category}}</li>
-        <li>Developer: {{selectedApp.developer}}</li>
-        <!-- add more details here -->
-      </ul>
-    </div>
-    <div class="app-permissions">
-      <h2>Permissions</h2>
-      <ul>
-        <!-- add permissions here -->
-        <li *ngFor="let permission of selectedApp.permissions">{{permission}}</li>
+        <li *ngFor="let review of selectedApp.reviews" class="review">
+          <p class="user">{{review.user}}</p>
+          <div class="rating-container">
+            <span class="rating-number">{{review.rating}} </span>
+            <ngb-rating [(rate)]="review.rating" [max]="5" [readonly]="true"></ngb-rating>
+          </div>
+          <p class="date">{{review.date}}</p>
+          <p class="comment">{{review.comment}}</p>
+        </li>
       </ul>
     </div>
   </div>
-  
-  
+    
+  <div style="width: 80%">
+    <h2>Details</h2>
+    <ul>
+      <li>Size: {{selectedApp.size}}</li>
+      <li>Version: {{selectedApp.version}}</li>
+      <li>Category: {{selectedApp.category}}</li>
+      <li>Developer: {{selectedApp.developer}}</li>
+      <!-- add more details here -->
+    </ul>
+  </div>
+  <div class="app-permissions">
+    <h2>Permissions</h2>
+    <ul>
+      <!-- add permissions here -->
+      <li *ngFor="let permission of selectedApp.permissions">• {{permission}}</li>
+    </ul>
+  </div>
+ 
+  <!-- add a button element with a click event that calls the goBack function -->
+ <button class="back-button" (click)="goBack()">Back</button>
+ 
+ </div>
+ 
+ 

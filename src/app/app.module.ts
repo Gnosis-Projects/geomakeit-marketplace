@@ -12,6 +12,10 @@ import { SelectorService } from './services/selector.service';
 import { CategoryFilterPipe } from './shared/pipes/category-filter.pipe';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeComponent } from './modules/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import { HomeComponent } from './modules/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    NgbModule,
+    NgbRatingModule
      ],
   providers: [AppListComponent,SelectorService],
   bootstrap: [AppComponent]

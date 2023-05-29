@@ -5,15 +5,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SelectorService {
-  // Create a BehaviorSubject to store and emit the selectedApp
   private selectedAppSource = new BehaviorSubject(null);
-  // Create an observable to subscribe to the selectedApp changes
   selectedApp$ = this.selectedAppSource.asObservable();
- 
+
+  private showListSource = new BehaviorSubject(true);
+  showList$ = this.showListSource.asObservable();
+  
   constructor() { }
- 
-  // Create a method to update the selectedApp
+  
   selectApp(app: any) {
-  this.selectedAppSource.next(app);
+    this.selectedAppSource.next(app);
   }
- }
+
+  setShowList(value: boolean) {
+    this.showListSource.next(value);
+  }
+}
+

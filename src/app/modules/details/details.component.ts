@@ -8,6 +8,8 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
  styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+
+ starRating = 0;
  selectedApp: any;
  slideConfig = {
   slidesToShow: 2,
@@ -17,10 +19,10 @@ export class DetailsComponent implements OnInit {
 
  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
+
  constructor(private appService: SelectorService) { }
  
  ngOnInit(): void {
- // Subscribe to the selectedApp$ observable from the appService and assign it to the selectedApp variable
  this.appService.selectedApp$.subscribe(app => {
  this.selectedApp = app;
  });
@@ -41,5 +43,10 @@ export class DetailsComponent implements OnInit {
 
  beforeChange(e:any) {
   console.log('beforeChange');
+ }
+
+ // Use the service method to update the showList value
+ goBack() {
+   this.appService.setShowList(true);
  }
 }
