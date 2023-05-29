@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SelectorService } from '../services/selector.service';
+import { SelectorService } from 'src/app/services/selector.service';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 @Component({

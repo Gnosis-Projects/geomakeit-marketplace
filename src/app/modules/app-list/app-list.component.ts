@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit,Output,EventEmitter } from '@angular/core';
-import { SelectorService } from '../services/selector.service';
+import { SelectorService } from 'src/app/services/selector.service';
 import { appList } from 'src/models/mockdata/app-list.mock';
 import { App } from 'src/models/interfaces/app-interface';
 
