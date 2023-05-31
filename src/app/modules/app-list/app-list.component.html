@@ -1,3 +1,6 @@
+<div class="category-tags">
+    <button class="tags" mat-button *ngFor="let category of categories" (click)="selectCategory(category)">{{category}}</button>
+  </div>  
 <div *ngFor="let category of categories">
      <h3>{{category}}</h3> 
      <div style="display: flex; overflow-x: auto; white-space: nowrap; align-items: center;">

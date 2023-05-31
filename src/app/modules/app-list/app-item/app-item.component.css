@@ -1,10 +1,10 @@
 .app-item {
-    border: 0.1rem solid rgb(209, 101, 143);
+    border: 0.01rem solid rgba(209, 101, 142, 0.308);
     padding: 1rem;
     margin: 1rem;
     border-radius: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.3rem rgb(109, 54, 54);
-    background-color:rgb(255, 255, 255);
+    box-shadow: 0.1rem 0.1rem 0.3rem rgba(83, 35, 35, 0.438);
+    background-color:rgba(255, 255, 255, 0.774);
     width: 30rem;
   }
   
