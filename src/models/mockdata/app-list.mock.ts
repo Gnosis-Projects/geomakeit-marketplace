@@ -3,6 +3,7 @@ export const appList = [
       name: "Alexa",
       icon: "./assets/img/samples/alexa.png",
       rating: 4.5,
+      downloads:423,
       description: "Use the Amazon Alexa App to set up your Alexa-enabled devices, listen to music, create shopping lists, get news updates, and much more.",
       screenshots: [
         "./assets/img/samples/alexa1.png",
@@ -45,6 +46,7 @@ export const appList = [
       name: "Disney",
       icon: "./assets/img/samples/disney.png",
       rating: 4.7,
+      downloads:2323,
       description: "Disney+ is the streaming home of your favorite stories. With unlimited entertainment from Disney, Pixar, Marvel, Star Wars and National Geographic, you’ll never be bored.",
       screenshots: [
         "./assets/img/samples/disney1.png",
@@ -81,6 +83,7 @@ export const appList = [
       name: "DuoLingo",
       icon: "./assets//img/samples/duolingo.png",
       rating: 4.2,
+      downloads:654,
       description: "Learn a new language with the world’s most-downloaded education app! Duolingo is the fun, free app for learning 35+ languages through quick, bite-sized lessons.",
       screenshots: [
         "./assets/img/samples/duolingo1.png",
@@ -117,6 +120,7 @@ export const appList = [
      name:"Pear", 
      icon:"./assets/img/samples/pear.png", 
      rating:"4.8", 
+     downloads:6543,
      description:"Pear is a personal wellness app that helps you track your mood, sleep, stress, and activity levels.",
      screenshots:[
        "./assets/img/samples/pear1.png", 
@@ -154,6 +158,7 @@ export const appList = [
     name: "Spotify",
     icon: "./assets/img/samples/spotify.png",
     rating: 4.6,
+    downloads:15423,
     description: "Spotify is the world’s largest music streaming service. With Spotify, you can listen to millions of songs and podcasts for free.",
     screenshots: [ "./assets/img/samples/spotify1.png",
                    "./assets/img/samples/spotify2.png",
@@ -184,6 +189,7 @@ export const appList = [
       name: "Instagram", 
       icon: "./assets/img/samples/instagram.png", 
       rating: 4.4, 
+      downloads:26423,
       description: "Instagram is a social media app that lets you connect with your friends and family, share your photos and videos, and discover new content and people.", 
       screenshots: [ "./assets/img/samples/instagram1.png", 
                      "./assets/img/samples/instagram2.png",

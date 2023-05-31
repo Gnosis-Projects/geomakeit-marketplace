@@ -17,14 +17,14 @@
 
 .main {
   font-size: 1.5rem;
-  margin-top: 15rem;
-  margin-bottom: 2.7rem;
+  margin-top: 15%;
+  margin-bottom: 2.7%;
 }
 
 .footer {
   background-color: rgba(252, 252, 252, 0.884);
   font-size: 1.5rem;
-  height: 2.7rem; 
+  height: 5%; 
   position: fixed;
   bottom: 0;
   left:0;

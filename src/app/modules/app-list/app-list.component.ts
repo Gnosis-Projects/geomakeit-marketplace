@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectorService } from 'src/app/services/selector.service';
-import { SortByPipe } from 'src/app/services/sortby.service';
 import { appList } from 'src/models/mockdata/app-list.mock';
 import { App } from 'src/models/interfaces/app-interface';
 
@@ -17,8 +16,19 @@ export class AppListComponent implements OnInit {
   showList: boolean = true;
   categories!: string[];
   selectedTabIndex!: number;
+  activeCategory: string = '';
+
+  categoriesState: { [key: string]: boolean } = {};
 
   constructor(private appService: SelectorService) {
+  }
+  //assigning the boolean value according to the buttons
+  toggleCategory (category: string) {
+    if (this.activeCategory === category) {
+      this.activeCategory = '';
+    } else {
+      this.activeCategory = category;
+    }
   }
 
   ngOnInit(): void {

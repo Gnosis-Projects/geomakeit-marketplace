@@ -14,6 +14,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeComponent } from './modules/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { SortByAverageRatingPipe } from './shared/pipes/sortByAverageRating.pipe';
+import { SortByPipe } from './shared/pipes/sortBy.pipe';
+
 
 
 
@@ -25,7 +28,9 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     AppItemComponent,
     DetailsComponent,
     CategoryFilterPipe,
-    HomeComponent
+    HomeComponent,
+    SortByAverageRatingPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
