@@ -5,6 +5,7 @@
   background-image: url("/assets/img/main/Background-Map.png");
   background-repeat: no-repeat;
   background-position-y: 12rem;
+  height: 100vh;
 }
 
 .header {
@@ -13,12 +14,16 @@
   top: 0;
   left:0;
   width: 100%;
+  background:rgba(255, 0, 0, 0.932);
+  z-index: 2;
+
 }
 
 .main {
   font-size: 1.5rem;
   margin-top: 15%;
   margin-bottom: 2.7%;
+  flex-grow:1;
 }
 
 .footer {

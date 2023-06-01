@@ -16,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { SortByAverageRatingPipe } from './shared/pipes/sortByAverageRating.pipe';
 import { SortByPipe } from './shared/pipes/sortBy.pipe';
+import { LightboxModule } from 'ngx-lightbox';
+
 
 
 
@@ -37,11 +39,12 @@ import { SortByPipe } from './shared/pipes/sortBy.pipe';
     AppRoutingModule,
     SlickCarouselModule,
     NgbModule,
-    NgbRatingModule
-     ],
+    NgbRatingModule,
+    LightboxModule,
+
+  ],
   providers: [AppListComponent,SelectorService],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent]
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}

@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { SelectorService } from 'src/app/services/selector.service';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { Lightbox } from 'ngx-lightbox';
+
 
 @Component({
  selector: 'app-details',
@@ -11,22 +13,39 @@ export class DetailsComponent implements OnInit {
 
  starRating = 0;
  selectedApp: any;
+ lightboxImages = [];
+
  slideConfig = {
-  slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToShow: 3,
+  slidesToScroll: 3,
   dots: true,
  };
 
  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
 
- constructor(private appService: SelectorService) { }
+ constructor(private appService: SelectorService,private lightbox: Lightbox) {
+  
+  }
  
  ngOnInit(): void {
  this.appService.selectedApp$.subscribe(app => {
  this.selectedApp = app;
  });
  }
+ openLightbox(index: number): void {
+  this.lightbox.open(this.lightboxImages, index);
+}
+prepareImages(): void {
+  // Assuming selectedApp.screenshots is an array of image URLs
+  this.lightboxImages = this.selectedApp.screenshots.map((url: string) => {
+    return {
+      src: url,
+      caption: 'Image caption',
+      thumb: url,
+    };
+  });
+}
 
  // You can use these functions to control the carousel
  slickInit(e:any) {
@@ -45,7 +64,6 @@ export class DetailsComponent implements OnInit {
   console.log('beforeChange');
  }
 
- // Use the service method to update the showList value
  goBack() {
    this.appService.setShowList(true);
  }
