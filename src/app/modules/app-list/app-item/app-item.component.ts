@@ -7,10 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppItemComponent implements OnInit {
   @Input() app: any;
+  public isHovered: boolean = false;
+  public showFullDescription: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
     // Do something with the app data
+  }
+
+  toggleHover() {
+    this.isHovered = !this.isHovered;
   }
 }

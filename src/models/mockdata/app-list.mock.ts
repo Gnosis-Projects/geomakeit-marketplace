@@ -180,7 +180,7 @@ export const appList = [
                 } ],
      size: "34 MB",
      version: "8.6.64.1081",
-     category: "Health & Fitness", 
+     category: "Lifestyle", 
      developer: "Spotify Ltd.", 
      permissions: [ "Access to internet connection", "Access to storage", "Access to microphone" ] 
 

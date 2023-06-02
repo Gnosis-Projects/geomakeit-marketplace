@@ -22,8 +22,8 @@ export class AppListComponent implements OnInit {
 
   constructor(private appService: SelectorService) {
   }
-  //assigning the boolean value according to the buttons
-  toggleCategory (category: string) {
+
+  toggleCategory(category: string) {
     if (this.activeCategory === category) {
       this.activeCategory = '';
     } else {
@@ -31,10 +31,12 @@ export class AppListComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    // Mock data
-    this.apps = appList
+  resetCategory() {
+    this.activeCategory = '';
+  }
 
+  ngOnInit(): void {
+    this.apps = appList;
     this.showList = true;
     this.categories = [...new Set(this.apps.map((app: App) => app.category))] as string[];
     this.selectedTabIndex = 0;
@@ -54,8 +56,40 @@ export class AppListComponent implements OnInit {
   onTabChange(event: any) {
     this.selectedTabIndex = event.nextId;
   }
+
   selectCategory(category: string) {
     // Do something with the selected category
     console.log(category);
   }
+  slideConfig = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: false,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 }

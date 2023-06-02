@@ -1,6 +1,13 @@
-<div class="app-item">
-    <img [src]="app.icon" alt="App icon" class = app_img>
-    <h3>{{ app.name }}</h3>
-    <p>Rating: {{ app.rating }}</p>
+<div class="app-item" [class.hovered]="isHovered" (mouseover)="toggleHover()" (mouseout)="toggleHover()">
+  <div class="left-content">
+    <img [src]="app.icon" alt="App icon" class="app-img">
+    <div class="app-info">
+      <h3>{{ app.name }}</h3>
+      <p class="rating">
+        {{ app.rating }}
+        <span class="star">&#9733;</span>
+      </p>
+    </div>
   </div>
-  
+  <p class="description">{{ app.description }}</p>
+</div>

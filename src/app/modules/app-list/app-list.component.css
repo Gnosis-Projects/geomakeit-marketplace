@@ -4,7 +4,7 @@
   align-items: center;
  }
 
-.category-tags{
+ .category-tags {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
@@ -12,15 +12,24 @@
   flex-wrap: nowrap;
 }
 
-.tags{
+.tags {
   margin: 0.5rem;
   text-align: center;
   border: 0.01rem solid rgba(110, 16, 90, 0.726);
   box-shadow: 2px 2px 4px 1px rgba(51, 13, 45, 0.274);
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.959);
-  background-color: #52073bef;
+  color: rgb(138, 33, 98);
+  background-color: #52073c00;
+  cursor: pointer; /* Add cursor style */
+  transition: background-color 0.3s, opacity 0.3s; /* Add transition */
 }
+
+.tags:hover {
+  background-color: rgb(155, 29, 98);
+  opacity: 0.8; /* Reduce opacity when hovered */
+  color: white;
+}
+
 
 .active {
   border: 0.12rem solid rgb(241, 175, 227);
