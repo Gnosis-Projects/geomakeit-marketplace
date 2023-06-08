@@ -1,8 +1,6 @@
 import { DoBootstrap, Injector, NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppListComponent } from './modules/app-list/app-list.component';
@@ -20,6 +18,7 @@ import { LightboxModule } from 'ngx-lightbox';
 import { SearchbarPipe } from './shared/pipes/searchbar.pipe';
 import { SearchbarComponent } from './modules/searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
+
 
 
 

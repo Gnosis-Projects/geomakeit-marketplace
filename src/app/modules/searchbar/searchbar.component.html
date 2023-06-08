@@ -1,10 +1,10 @@
+<!-- remove the clickOutside directive from the div element -->
 <div class="searchbar">
-  <!-- add a template reference variable #input to the input element -->
-  <input #input type="text" [(ngModel)]="searchValue" (input)="filterApps()" (change)="onChange()" (click)="showDropdown = true" (blur)="onBlur()" (keydown)="onKeydown($event)" placeholder="Search apps...">
+  <input #input type="text" [(ngModel)]="searchValue" (input)="filterApps()" (change)="onChange()" (click)="showDropdown = true" (keydown)="onKeydown($event)" placeholder="Search apps...">
   <button class="clear-button" (click)="clearSearch()"><i class="fa fa-times"></i></button>
-  <ul class="dropdown-list" [hidden]="!showDropdown || !searchValue.trim()" clickOutside="onBlur()">
+  <ul class="dropdown-list" [hidden]="!showDropdown || !searchValue.trim()">
   <li *ngFor="let app of filteredApps; let i = index" [class.selected]="i === selectedIndex">
-  <a href="#" (click)="onAppClick(app, $event)"><img src="{{app.icon}}" alt="{{app.name}}"> {{app.name}}</a> 
-  </li>
+  <!-- use the focus event instead of the click event -->
+  <a (focus)="selectedIndex = i" (click)="onAppClick(app, $event)"><img src="{{app.icon}}" alt="{{app.name}}"> {{app.name}}</a>   </li>
   </ul>
  </div>

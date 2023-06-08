@@ -1,27 +1,9 @@
 import { Component, OnInit, Directive, Output, EventEmitter, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { App } from 'src/models/interfaces/app-interface';
 import { appList } from 'src/models/mockdata/app-list.mock';
-import { SelectorService } from 'src/app/services/selector.service';
+import { SelectorService } from 'src/app/services/selector.service'; // import the service
 
-@Directive({
-  selector: '[clickOutside]'
-})
-export class ClickOutsideDirective {
-  @Output() clickOutside = new EventEmitter<void>();
-
-  constructor(private elementRef: ElementRef) {}
-
-  @HostListener('document:click', ['$event.target'])
-  onClick(target: HTMLElement) {
-    // check if the click target is outside of the element with this directive
-    if (!this.elementRef.nativeElement.contains(target)) {
-      // emit the clickOutside event
-      this.clickOutside.emit();
-    }
-  }
-}
-
-
+// searchbar.component.ts
 @Component({
  selector: 'app-searchbar',
  templateUrl: './searchbar.component.html',
@@ -29,14 +11,11 @@ export class ClickOutsideDirective {
 })
 export class SearchbarComponent implements OnInit {
 
- keyword = 'name'; // the name of the property to display in the autocomplete
  apps: App[] = appList;
  searchValue = '';
  filteredApps: App[] = [];
  showDropdown: boolean = false; // initial value
- // use a private variable to store the index
  private _selectedIndex: number = -1;
- // use a ViewChild decorator to access the input element
  @ViewChild('input') inputElement!: ElementRef;
 
  constructor(private selectorService: SelectorService) { } // inject the service
@@ -65,7 +44,6 @@ filterApps() {
 }
 
 
-// helper function to get the match score for an app name and an input value
 getMatchScore(name: string, value: string): number {
  if (name.startsWith(value)) {
  return 100;
@@ -77,19 +55,17 @@ getMatchScore(name: string, value: string): number {
 }
 
 onAppClick(app: App, event: Event) {
+  console.log("click")
   event.preventDefault();
   this.selectorService.selectApp(app);
   this.selectorService.setShowList(false);
-  this.showDropdown = false;
   this.searchValue = app.name;
-  // use a setTimeout function to delay the clicking of the input element
-  setTimeout(() => {
-    this.inputElement.nativeElement.click();
-  }, 2000); // adjust the delay as needed
+  this.onBlur();
 }
 
 onBlur() {
-  this.showDropdown = false;
+    this.showDropdown = false;
+
 }
  
 clearSearch() {
@@ -127,7 +103,8 @@ onKeydown(event: KeyboardEvent) {
       // trigger the onAppClick method for the selected option if it exists
       if (this.selectedIndex > -1 && this.selectedIndex < this.filteredApps.length) {
         let app = this.filteredApps[this.selectedIndex];
-        this.onAppClick(app, new Event('dummy'));
+        // use event instead of new Event('dummy')
+        this.onAppClick(app, event);
       }
       break;
     case 'Escape':
