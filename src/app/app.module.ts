@@ -17,6 +17,10 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { SortByAverageRatingPipe } from './shared/pipes/sortByAverageRating.pipe';
 import { SortByPipe } from './shared/pipes/sortBy.pipe';
 import { LightboxModule } from 'ngx-lightbox';
+import { SearchbarPipe } from './shared/pipes/searchbar.pipe';
+import { SearchbarComponent } from './modules/searchbar/searchbar.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -32,8 +36,10 @@ import { LightboxModule } from 'ngx-lightbox';
     CategoryFilterPipe,
     HomeComponent,
     SortByAverageRatingPipe,
-    SortByPipe
-  ],
+    SortByPipe,
+    SearchbarPipe,
+    SearchbarComponent
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +47,7 @@ import { LightboxModule } from 'ngx-lightbox';
     NgbModule,
     NgbRatingModule,
     LightboxModule,
+    FormsModule
 
   ],
   providers: [AppListComponent,SelectorService],

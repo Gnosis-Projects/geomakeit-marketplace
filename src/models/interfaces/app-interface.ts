@@ -9,5 +9,5 @@ export interface App {
     version: string;
     category: string;
     developer: string;
-    permissions: string[];
-   }
+    permissions?: string[]; // make permissions optional
+    }

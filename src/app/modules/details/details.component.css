@@ -4,7 +4,7 @@
   align-items: center;
   margin: 0 auto;
   margin-top: 5rem;
-  margin-bottom: 5%;
+  width: 65%;
   background-color: white; 
   border-radius: 0.9rem;
   box-shadow: 0 0 10px rgba(185, 108, 144, 0.301);
@@ -132,10 +132,6 @@
     font-size: 2rem;
   }
   
-  .app-details {
-  width:80%; 
-  }
-  
   .app-details h2 {
   font-size:1.75rem; 
   }
@@ -174,7 +170,7 @@
  }
  
  .carousel {
-  width: 80%;
+  width: 92%;
   margin: 0 auto;
   z-index: 1;
 }

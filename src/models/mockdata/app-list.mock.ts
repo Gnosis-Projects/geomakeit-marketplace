@@ -119,7 +119,7 @@ export const appList = [
     {
      name:"Pear", 
      icon:"./assets/img/samples/pear.png", 
-     rating:"4.8", 
+     rating:4.8, 
      downloads:6543,
      description:"Pear is a personal wellness app that helps you track your mood, sleep, stress, and activity levels.",
      screenshots:[
@@ -130,17 +130,17 @@ export const appList = [
      reviews:[
        {
          user:"Emma", 
-         rating:"5", 
+         rating:5, 
          comment:"This app is amazing, it helps me stay mindful and healthy."
        }, 
        {
          user:"Liam", 
-         rating:"4", 
+         rating:4, 
          comment:"It's a good app, but I wish it had more customization options."
        }, 
        {
          user:"Sophia", 
-         rating:"5", 
+         rating:5, 
          comment:"It's the best app ever, I love the insights and tips it gives me."
        }
      ], 

@@ -2,23 +2,22 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class SelectorService {
-  private selectedAppSource = new BehaviorSubject(null);
-  selectedApp$ = this.selectedAppSource.asObservable();
+ private selectedAppSource = new BehaviorSubject(null);
+ selectedApp$ = this.selectedAppSource.asObservable();
 
-  private showListSource = new BehaviorSubject(true);
-  showList$ = this.showListSource.asObservable();
-  
-  constructor() { }
-  
-  selectApp(app: any) {
-    this.selectedAppSource.next(app);
-  }
+ private showListSource = new BehaviorSubject(true);
+ showList$ = this.showListSource.asObservable();
+ 
+ constructor() { }
+ 
+ selectApp(app: any) {
+ this.selectedAppSource.next(app);
+ }
 
-  setShowList(value: boolean) {
-    this.showListSource.next(value);
-  }
+ setShowList(value: boolean) {
+ this.showListSource.next(value);
+ }
 }
-

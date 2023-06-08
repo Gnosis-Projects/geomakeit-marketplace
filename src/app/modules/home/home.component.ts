@@ -12,17 +12,17 @@ export class HomeComponent {
 
  showList: boolean = true; // initial value
 
- constructor(public appListComponent: AppListComponent, private appService: SelectorService) { }
+ constructor(public appListComponent: AppListComponent, private selectorService: SelectorService) { } // inject the service
  
  ngOnInit(): void {
-   this.appService.showList$.subscribe(value => {
-     this.showList = value;
-   });
+ // subscribe to the showList$ observable from the service
+ this.selectorService.showList$.subscribe(value => {
+ this.showList = value;
+ });
  }
  
  onShowListChange(value: boolean) {
-   console.log('on show list change parent');
-   this.showList = value; 
+ console.log('on show list change parent');
+ this.showList = value; 
  }
 }
-
