@@ -23,11 +23,6 @@ import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
 
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

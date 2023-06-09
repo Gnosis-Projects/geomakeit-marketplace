@@ -39,7 +39,7 @@ export class AppListComponent implements OnInit {
     this.apps = appList;
     this.showList = true;
     this.categories = [...new Set(this.apps.map((app: App) => app.category))] as string[];
-    this.categories.push('All'); // Add 'All' to the categories array
+    this.categories.push('All'); 
     this.selectedTabIndex = 0;
   }
 
