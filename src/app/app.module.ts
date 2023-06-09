@@ -18,6 +18,8 @@ import { LightboxModule } from 'ngx-lightbox';
 import { SearchbarPipe } from './shared/pipes/searchbar.pipe';
 import { SearchbarComponent } from './modules/searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
+import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
 
 
 
@@ -37,7 +39,9 @@ import { FormsModule } from '@angular/forms';
     SortByAverageRatingPipe,
     SortByPipe,
     SearchbarPipe,
-    SearchbarComponent
+    SearchbarComponent,
+    TruncatePipe,
+    ShortNumbersPipe
       ],
   imports: [
     BrowserModule,

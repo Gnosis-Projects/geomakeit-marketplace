@@ -24,7 +24,7 @@ export class AppListComponent implements OnInit {
   }
 
   toggleCategory(category: string) {
-    if (this.activeCategory === category) {
+    if (this.activeCategory === category || category === 'All') {
       this.activeCategory = '';
     } else {
       this.activeCategory = category;
@@ -39,6 +39,7 @@ export class AppListComponent implements OnInit {
     this.apps = appList;
     this.showList = true;
     this.categories = [...new Set(this.apps.map((app: App) => app.category))] as string[];
+    this.categories.push('All'); // Add 'All' to the categories array
     this.selectedTabIndex = 0;
   }
 

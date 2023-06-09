@@ -2,12 +2,13 @@
   <div class="left-content">
     <img [src]="app.icon" alt="App icon" class="app-img">
     <div class="app-info">
-      <h3>{{ app.name }}</h3>
+      <h3 class="app-title">{{ app.name }}</h3>
       <p class="rating">
         {{ app.rating }}
-        <span class="star">&#9733;</span>
+        <span class="star">★</span>
+        <span class="downloads">{{ app.downloads | shorten }}<img src="./assets/img/app-items/downloads.png" alt="Download icon"></span>
       </p>
     </div>
   </div>
-  <p class="description">{{ app.description }}</p>
+  <p class="description">{{ app.description | truncate:100 }}</p>
 </div>
