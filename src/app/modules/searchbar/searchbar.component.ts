@@ -1,6 +1,5 @@
 import { Component, OnInit, Directive, Output, EventEmitter, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { App } from 'src/models/interfaces/app-interface';
-import { appList } from 'src/models/mockdata/app-list.mock';
+import { Game_List } from 'src/models/interfaces/game-list.interface';
 import { SelectorService } from 'src/app/services/selector.service'; // import the service
 
 // searchbar.component.ts
@@ -11,9 +10,9 @@ import { SelectorService } from 'src/app/services/selector.service'; // import t
 })
 export class SearchbarComponent implements OnInit {
 
- apps: App[] = appList;
+ games!: Game_List[];
  searchValue = '';
- filteredApps: App[] = [];
+ filteredApps: Game_List[] = [];
  showDropdown: boolean = false; // initial value
  private _selectedIndex: number = -1;
  @ViewChild('input') inputElement!: ElementRef;
@@ -21,17 +20,17 @@ export class SearchbarComponent implements OnInit {
  constructor(private selectorService: SelectorService) { } // inject the service
 
  ngOnInit(): void {
- this.filteredApps = this.apps;
+ this.filteredApps = this.games;
  }
 
 filterApps() {
-  // filter the apps by name
-  this.filteredApps = this.apps.filter(app => app.name.toLowerCase().includes(this.searchValue.toLowerCase()));
-  // sort the filtered apps by match score
+  // filter the games by name
+  this.filteredApps = this.games.filter(game => game.title.toLowerCase().includes(this.searchValue.toLowerCase()));
+  // sort the filtered games by match score
   this.filteredApps.sort((a, b) => {
     // get the match score for each app
-    let scoreA = this.getMatchScore(a.name.toLowerCase(), this.searchValue.toLowerCase());
-    let scoreB = this.getMatchScore(b.name.toLowerCase(), this.searchValue.toLowerCase());
+    let scoreA = this.getMatchScore(a.title.toLowerCase(), this.searchValue.toLowerCase());
+    let scoreB = this.getMatchScore(b.title.toLowerCase(), this.searchValue.toLowerCase());
     // compare the scores
     if (scoreA > scoreB) {
       return -1; // app A has a higher score, so it comes before app B
@@ -54,12 +53,12 @@ getMatchScore(name: string, value: string): number {
  return 0;
 }
 
-onAppClick(app: App, event: Event) {
+onAppClick(app: Game_List, event: Event) {
   console.log("click")
   event.preventDefault();
   this.selectorService.selectApp(app);
   this.selectorService.setShowList(false);
-  this.searchValue = app.name;
+  this.searchValue = app.title;
   this.onBlur();
 }
 
@@ -127,7 +126,7 @@ set selectedIndex(value: number) {
   // update the input value with the selected option if it exists
   if (value > -1 && value < this.filteredApps.length) {
     let app = this.filteredApps[value];
-    this.searchValue = app.name;
+    this.searchValue = app.title;
   }
 }
 }

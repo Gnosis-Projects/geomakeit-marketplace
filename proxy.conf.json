@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "http://195.181.247.9/geomakeitstoreapi",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

@@ -20,7 +20,10 @@ import { SearchbarComponent } from './modules/searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -45,10 +48,20 @@ import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
     NgbModule,
     NgbRatingModule,
     LightboxModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
-  providers: [AppListComponent,SelectorService],
+  providers: [AppListComponent,
+              SelectorService,
+              {
+                provide: HTTP_INTERCEPTORS,
+                useClass: ErrorHandlerInterceptor,
+                multi: true
+              }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule implements DoBootstrap {

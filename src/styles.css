@@ -1,4 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
 .slick-prev:before, .slick-next:before { 
     font-family: "slick"; 
     font-size: 4rem; 

@@ -1,3 +1,4 @@
+<!-- app-list.component.html -->
 <div class="category-tags">
   <button class="tags" mat-button [ngClass]="{'active': activeCategory === ''}" (click)="resetCategory()">Home</button>
   <button class="tags" mat-button [ngClass]="{'active': activeCategory === category}" *ngFor="let category of categories" (click)="toggleCategory(category)">{{category}}</button>
@@ -6,8 +7,8 @@
   <div *ngIf="activeCategory === category">
      <h3>{{category}}</h3> 
      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-       <div ngxSlickItem *ngFor="let app of apps | categoryFilter:category | sortByAverageRating:'desc'" class="slide">
-         <app-app-item [app]="app" (click)="selectApp(app)"></app-app-item> 
+       <div ngxSlickItem *ngFor="let game of games | categoryFilter:category | sortByAverageRating:'desc'" class="slide">
+         <app-app-item [app]="game" (click)="selectApp(game)"></app-app-item> 
        </div>
      </ngx-slick-carousel>
   </div>
@@ -15,16 +16,16 @@
 <div *ngIf="activeCategory === ''">
   <h3>Best rated</h3> 
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let app of apps | sortByAverageRating:'desc'" class="slide">
-      <app-app-item [app]="app" (click)="selectApp(app)"></app-app-item> 
+    <div ngxSlickItem *ngFor="let game of games | sortByAverageRating:'desc'" class="slide">
+      <app-app-item [app]="game" (click)="selectApp(game)"></app-app-item> 
     </div>
   </ngx-slick-carousel>
 </div>
 <div *ngIf="activeCategory === ''">
   <h3>Most downloaded</h3> 
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let app of apps | sortBy:['downloads']:['desc']" class="slide">
-      <app-app-item [app]="app" (click)="selectApp(app)"></app-app-item> 
+    <div ngxSlickItem *ngFor="let game of games | sortBy:['downloads']:['desc']" class="slide">
+      <app-app-item [app]="game" (click)="selectApp(game)"></app-app-item> 
     </div>
   </ngx-slick-carousel>
 </div>

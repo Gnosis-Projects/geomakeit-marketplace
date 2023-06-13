@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectorService } from 'src/app/services/selector.service';
-import { appList } from 'src/models/mockdata/app-list.mock';
-import { App } from 'src/models/interfaces/app-interface';
+import { Game_List } from 'src/models/interfaces/game-list.interface';
+import { GetGamesService } from 'src/app/services/get-games.service';
 
 @Component({
   selector: 'app-app-list',
@@ -11,8 +11,8 @@ import { App } from 'src/models/interfaces/app-interface';
 export class AppListComponent implements OnInit {
 
   @Output() showListChange = new EventEmitter<boolean>();
-
-  apps: any;
+  test: any;
+  games: Game_List[] = [];
   showList: boolean = true;
   categories!: string[];
   selectedTabIndex!: number;
@@ -20,7 +20,7 @@ export class AppListComponent implements OnInit {
 
   categoriesState: { [key: string]: boolean } = {};
 
-  constructor(private appService: SelectorService) {
+  constructor(private appService: SelectorService,private gameService: GetGamesService) {
   }
 
   toggleCategory(category: string) {
@@ -36,11 +36,31 @@ export class AppListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apps = appList;
     this.showList = true;
-    this.categories = [...new Set(this.apps.map((app: App) => app.category))] as string[];
+    this.categories = [...new Set(this.games.map((game: Game_List) => game.category))] as string[];
     this.categories.push('All'); 
     this.selectedTabIndex = 0;
+    // testing the services here to see wtf im doing
+    this.gameService.getGames().subscribe({
+      next: (data: Object) => {
+        this.games = data as Game_List[];
+        // parse the screenshots property from string to array
+        this.games.forEach(game => {
+          game.screenshots = JSON.parse(game.screenshots);
+        });
+      },
+      error: (error: any) => {
+        console.log("eror fwnazwww")
+        console.error(error);
+      },
+      complete: () => {
+        console.log("ektupwnw ta paixnidia apo to get")
+        console.log(this.games)      
+      }
+    });
+    
+
+
   }
 
   selectApp(app: any) {

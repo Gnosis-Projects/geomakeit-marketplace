@@ -2,7 +2,6 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { SelectorService } from 'src/app/services/selector.service';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { Lightbox } from 'ngx-lightbox';
-import { App } from 'src/models/interfaces/app-interface';
 
 
 @Component({
