@@ -62,7 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                 multi: true
               }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
