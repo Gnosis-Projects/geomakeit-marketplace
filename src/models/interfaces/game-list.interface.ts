@@ -12,7 +12,7 @@ export interface Game_List {
     downloads: number;
   }
   
-  export interface Screenshot {
+  interface Screenshot {
     url: string;
   }
   

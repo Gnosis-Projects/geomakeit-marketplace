@@ -4,6 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {GameDetails} from "../../models/interfaces/game-details.interface";
 import {catchError} from "rxjs/operators";
 import {ToastrService} from "ngx-toastr";
+import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,14 @@ export class GetGamesService {
 
   constructor(private http: HttpClient, private toastrService: ToastrService) { }
 
-  getGames(): Observable<GameDetails[]> {
-    return this.http.get(this.baseUrl + '/List')
-      .pipe(catchError(error => {
-        this.toastrService.error('Error while fetching list of games!');
-        return error;
-    }));
-  }
+getGames(): Observable<Game_List[]> {
+  return this.http.get<Game_List[]>(this.baseUrl + '/List')
+    .pipe(catchError(error => {
+      this.toastrService.error('Error while fetching list of games!');
+      return throwError(error);
+  }));
+}
+
 
 
   getGameDetails(id: number) {

@@ -3,6 +3,7 @@ import { SelectorService } from 'src/app/services/selector.service';
 import { GetGamesService } from 'src/app/services/get-games.service';
 import {map, Observable} from "rxjs";
 import {GameDetails} from "../../../models/interfaces/game-details.interface";
+import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Component({
   selector: 'app-app-list',
@@ -13,7 +14,7 @@ export class AppListComponent implements OnInit {
 
   @Output() showListChange = new EventEmitter<boolean>();
   test: any;
-  games$!: Observable<GameDetails[]>;
+  games$!: Observable<Game_List[]>;
   showList: boolean = true;
   categories$!: Observable<string[]>;
   selectedTabIndex!: number;
@@ -23,6 +24,13 @@ export class AppListComponent implements OnInit {
   constructor(private appService: SelectorService,private gameService: GetGamesService) {
   }
 
+  ngOnInit(): void {
+    this.showList = true;
+    this.getAllGames();
+    this.getCategories();
+    this.selectedTabIndex = 0;
+  }
+  
   toggleCategory(category: string) {
     if (this.activeCategory === category || category === 'All') {
       this.activeCategory = '';
@@ -33,15 +41,6 @@ export class AppListComponent implements OnInit {
 
   resetCategory() {
     this.activeCategory = '';
-  }
-
-  ngOnInit(): void {
-    this.showList = true;
-    this.getAllGames();
-    this.getCategories();
-    /*this.categories = [...new Set(this.games.map((game: Game_List) => game.category))] as string[];
-    this.categories.push('All');*/
-    this.selectedTabIndex = 0;
   }
 
   getAllGames() {
