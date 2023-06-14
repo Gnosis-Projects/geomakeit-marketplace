@@ -5,19 +5,19 @@ import { BehaviorSubject } from 'rxjs';
  providedIn: 'root'
 })
 export class SelectorService {
- private selectedAppSource = new BehaviorSubject(null);
- selectedApp$ = this.selectedAppSource.asObservable();
-
+ private selectedAppSource = new BehaviorSubject<number | null> (null); 
+ public selectedApp$ = this.selectedAppSource.asObservable();
  private showListSource = new BehaviorSubject(true);
  showList$ = this.showListSource.asObservable();
  
  constructor() { }
  
- selectApp(app: any) {
- this.selectedAppSource.next(app);
+ selectApp(app_id: number | null) {
+ this.selectedAppSource.next(app_id);
  }
 
  setShowList(value: boolean) {
  this.showListSource.next(value);
  }
 }
+

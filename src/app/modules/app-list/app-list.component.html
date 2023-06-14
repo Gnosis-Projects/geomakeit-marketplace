@@ -1,4 +1,3 @@
-<!-- app-list.component.html -->
 <div class="category-tags">
   <button class="tags" mat-button [ngClass]="{'active': activeCategory === ''}" (click)="resetCategory()">Home</button>
   <button class="tags" mat-button [ngClass]="{'active': activeCategory === category}" *ngFor="let category of categories" (click)="toggleCategory(category)">{{category}}</button>
@@ -8,7 +7,7 @@
      <h3>{{category}}</h3> 
      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
        <div ngxSlickItem *ngFor="let game of games | categoryFilter:category | sortByAverageRating:'desc'" class="slide">
-         <app-app-item [app]="game" (click)="selectApp(game)"></app-app-item> 
+         <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item> 
        </div>
      </ngx-slick-carousel>
   </div>

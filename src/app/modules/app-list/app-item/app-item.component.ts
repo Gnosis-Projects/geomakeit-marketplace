@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Component({
   selector: 'app-app-item',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./app-item.component.css']
 })
 export class AppItemComponent implements OnInit {
-  @Input() app: any;
+  @Input() app!: Game_List;
   public isHovered: boolean = false;
   public showFullDescription: boolean = false;
 

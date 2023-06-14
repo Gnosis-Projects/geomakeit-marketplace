@@ -13,9 +13,9 @@ export class AppListComponent implements OnInit {
 
   @Output() showListChange = new EventEmitter<boolean>();
   test: any;
-  games$: Observable<GameDetails[]>;
+  games$!: Observable<GameDetails[]>;
   showList: boolean = true;
-  categories$: Observable<string[]>;
+  categories$!: Observable<string[]>;
   selectedTabIndex!: number;
   activeCategory: string = '';
   categoriesState: { [key: string]: boolean } = {};
@@ -42,26 +42,6 @@ export class AppListComponent implements OnInit {
     /*this.categories = [...new Set(this.games.map((game: Game_List) => game.category))] as string[];
     this.categories.push('All');*/
     this.selectedTabIndex = 0;
-
-    // testing the services here to see wtf im doing
-   /* this.gameService.getGames().subscribe({
-      next: (data: Object) => {
-        this.games = data as Game_List[];
-        // parse the screenshots property from string to array
-        this.games.forEach(game => {
-          game.screenshots = JSON.parse(game.screenshots);
-        });
-      },
-      error: (error: any) => {
-        console.log("eror fwnazwww")
-        console.error(error);
-      },
-      complete: () => {
-        console.log("ektupwnw ta paixnidia apo to get")
-        console.log(this.games)
-      }
-    });*/
-
   }
 
   getAllGames() {
@@ -73,13 +53,15 @@ export class AppListComponent implements OnInit {
       const categoriesArray: string[] = [];
       games.map(game => categoriesArray.push(JSON.parse(game.category || '')))
       return categoriesArray;
-    }))
+    }));
   }
 
-  selectApp(app: any) {
+  selectApp(game_id: number) {
     this.showList = false;
     this.showListChange.emit(this.showList);
-    this.appService.selectApp(app);
+    this.appService.selectApp(game_id);
+    console.log(game_id)
+    // EDW MESA PERNAW TO GAME OLOKLHRO OXI TO GAME_ID PREPEI NA TO FTIAXW
   }
 
   backToList() {

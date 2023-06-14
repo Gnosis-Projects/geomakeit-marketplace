@@ -56,7 +56,7 @@ getMatchScore(name: string, value: string): number {
 onAppClick(app: Game_List, event: Event) {
   console.log("click")
   event.preventDefault();
-  this.selectorService.selectApp(app);
+  this.selectorService.selectApp(app.game_id);
   this.selectorService.setShowList(false);
   this.searchValue = app.title;
   this.onBlur();

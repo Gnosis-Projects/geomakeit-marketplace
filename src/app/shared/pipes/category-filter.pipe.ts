@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { GameDetails } from 'src/models/interfaces/game-details.interface';
+import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Pipe({
   name: 'categoryFilter'
 })
 export class CategoryFilterPipe  implements PipeTransform {
 
-  transform(value: GameDetails[], category: string): GameDetails[] {
+  transform(value: Game_List[], category: string): Game_List[] {
   return value.filter(game => game.category === category);
   }
  
