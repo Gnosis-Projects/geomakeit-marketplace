@@ -12,22 +12,11 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        let msg;
-        switch (error.status) {
-          case 500:
-            msg = "Internal server error";
-            break;
-          case 401:
-            msg = "Unauthorized access";
-            break;
-          case 404:
-            msg = "Resource not found";
-            break;
-          default:
-            msg = "Something went wrong";
-        }
+        // Use the error.error property to get the error message
+        let msg = error.error || "Something went wrong";
         this.toastrService.error(msg);
-        return throwError(error);
+        // Use a function that returns an error for throwError()
+        return throwError(() => error);
       })
     );
   }

@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable, throwError} from "rxjs";
-import {GameDetails} from "../../models/interfaces/game-details.interface";
-import {catchError} from "rxjs/operators";
-import {ToastrService} from "ngx-toastr";
+import {Observable} from "rxjs";
 import { Game_List } from 'src/models/interfaces/game-list.interface';
+import { Category } from 'src/models/interfaces/games-per-category.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,21 +11,20 @@ export class GetGamesService {
 
   baseUrl = '/api/StudioComm';
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) { }
+  constructor(private http: HttpClient) { }
 
-getGames(): Observable<Game_List[]> {
-  return this.http.get<Game_List[]>(this.baseUrl + '/List')
-    .pipe(catchError(error => {
-      this.toastrService.error('Error while fetching list of games!');
-      return throwError(error);
-  }));
-}
+  // Remove the catchError() operator
+  getGames(): Observable<Game_List[]> {
+    return this.http.get<Game_List[]>(this.baseUrl + '/List');
+  }
 
+  // Remove the catchError() operator
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.baseUrl + '/ListByCategory');
+  }
 
-
+  // Remove the catchError() operator
   getGameDetails(id: number) {
     return this.http.get(this.baseUrl + '/GetGameByID/' + id);
   }
-
-
 }

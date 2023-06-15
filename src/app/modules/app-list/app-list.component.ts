@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectorService } from 'src/app/services/selector.service';
 import { GetGamesService } from 'src/app/services/get-games.service';
-import {map, Observable} from "rxjs";
-import {GameDetails} from "../../../models/interfaces/game-details.interface";
+import {map, Observable, Subject, takeUntil} from "rxjs";
+import { Category,Game } from "src/models/interfaces/games-per-category.interface";
 import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Component({
@@ -20,6 +20,12 @@ export class AppListComponent implements OnInit {
   selectedTabIndex!: number;
   activeCategory: string = '';
   categoriesState: { [key: string]: boolean } = {};
+  private destroy$ = new Subject<void>();
+  categories!: Category[];
+  selectedGames!: Game[];
+  allGames!:Game[];
+
+
 
   constructor(private appService: SelectorService,private gameService: GetGamesService) {
   }
@@ -29,6 +35,10 @@ export class AppListComponent implements OnInit {
     this.getAllGames();
     this.getCategories();
     this.selectedTabIndex = 0;
+  }
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
   
   toggleCategory(category: string) {
@@ -44,23 +54,30 @@ export class AppListComponent implements OnInit {
   }
 
   getAllGames() {
-    this.games$ = this.gameService.getGames();
+    this.gameService.getGames()
   }
-
-  getCategories() {
-    this.categories$ = this.games$.pipe(map(games => {
-      const categoriesArray: string[] = [];
-      games.map(game => categoriesArray.push(JSON.parse(game.category || '')))
-      return categoriesArray;
-    }));
+  
+  getCategories(): void {
+    this.gameService.getCategories().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(
+      {
+        next: (categories: Category[]) => {
+          this.categories = categories;
+          console.log(this.categories)
+          this.allGames = this.categories.flatMap(category=>category.games);
+        },
+        error: (error) => {
+          console.error("Something went wrong when loading the List of Games");
+        }
+      }
+    )
   }
 
   selectApp(game_id: number) {
     this.showList = false;
     this.showListChange.emit(this.showList);
     this.appService.selectApp(game_id);
-    console.log(game_id)
-    // EDW MESA PERNAW TO GAME OLOKLHRO OXI TO GAME_ID PREPEI NA TO FTIAXW
   }
 
   backToList() {
@@ -72,10 +89,11 @@ export class AppListComponent implements OnInit {
     this.selectedTabIndex = event.nextId;
   }
 
-  selectCategory(category: string) {
-    // Do something with the selected category
-    console.log(category);
+  selectCategory(category: Category) {
+    this.activeCategory = category.category;
+    this.selectedGames = category.games;
   }
+
   slideConfig = {
     slidesToShow: 4,
     slidesToScroll: 1,
