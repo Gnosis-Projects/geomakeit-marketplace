@@ -21,6 +21,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
 
   ],
   providers: [AppListComponent,
@@ -56,13 +58,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                 multi: true
               }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
     const appListElement = createCustomElement(AppListComponent, { injector: this.injector });
-    customElements.define('app-list', appListElement);
+    customElements.define('market-place', appListElement);
   }
 }

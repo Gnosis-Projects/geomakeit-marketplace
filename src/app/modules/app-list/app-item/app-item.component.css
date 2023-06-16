@@ -21,7 +21,6 @@
 .app-img {
   width: 4rem;
   height: 4rem;
-  align-self: center;
 }
 
 .app-info {
@@ -81,7 +80,7 @@ p.description {
 }
 
 .app-title {
-  font-size: 2.5vw;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
   align-self: center;
 }
