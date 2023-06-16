@@ -3,7 +3,6 @@ import { SelectorService } from 'src/app/services/selector.service';
 import { GetGamesService } from 'src/app/services/get-games.service';
 import {map, Observable, Subject, takeUntil} from "rxjs";
 import { Category,Game } from "src/models/interfaces/games-per-category.interface";
-import { Game_List } from 'src/models/interfaces/game-list.interface';
 
 @Component({
   selector: 'app-app-list',
@@ -14,7 +13,6 @@ export class AppListComponent implements OnInit {
 
   @Output() showListChange = new EventEmitter<boolean>();
   test: any;
-  games$!: Observable<Game_List[]>;
   showList: boolean = true;
   categories$!: Observable<string[]>;
   selectedTabIndex!: number;
@@ -32,7 +30,6 @@ export class AppListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showList = true;
-    this.getAllGames();
     this.getCategories();
     this.selectedTabIndex = 0;
   }
@@ -41,20 +38,8 @@ export class AppListComponent implements OnInit {
     this.destroy$.complete();
   }
   
-  toggleCategory(category: string) {
-    if (this.activeCategory === category || category === 'All') {
-      this.activeCategory = '';
-    } else {
-      this.activeCategory = category;
-    }
-  }
-
   resetCategory() {
     this.activeCategory = '';
-  }
-
-  getAllGames() {
-    this.gameService.getGames()
   }
   
   getCategories(): void {
