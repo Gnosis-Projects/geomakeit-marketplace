@@ -56,13 +56,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                 multi: true
               }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
     const appListElement = createCustomElement(AppListComponent, { injector: this.injector });
-    customElements.define('app-list', appListElement);
+    customElements.define('market-place', appListElement);
   }
 }
