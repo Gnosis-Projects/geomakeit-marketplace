@@ -13,17 +13,14 @@ export class GetGamesService {
 
   constructor(private http: HttpClient) { }
 
-  // Remove the catchError() operator
   getGames(): Observable<Game_List[]> {
     return this.http.get<Game_List[]>(this.baseUrl + '/List');
   }
 
-  // Remove the catchError() operator
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.baseUrl + '/ListByCategory');
   }
 
-  // Remove the catchError() operator
   getGameDetails(id: number) {
     return this.http.get(this.baseUrl + '/GetGameByID/' + id);
   }

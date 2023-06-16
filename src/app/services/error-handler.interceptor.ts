@@ -12,10 +12,8 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        // Use the error.error property to get the error message
         let msg = error.error || "Something went wrong";
         this.toastrService.error(msg);
-        // Use a function that returns an error for throwError()
         return throwError(() => error);
       })
     );

@@ -1,6 +1,6 @@
 <div class="category-tags">
-  <button class="tags" mat-raised-button [class.active]="activeCategory === ''" (click)="resetCategory()">Home</button>
-  <button class="tags" mat-raised-button [class.active]="activeCategory === selected.category"
+  <button class="tags"  [class.active]="activeCategory === ''" (click)="resetCategory()">Home</button>
+  <button class="tags"  [class.active]="activeCategory === selected.category"
           *ngFor="let selected of categories" (click)="selectCategory(selected)">{{selected.category}}
   </button>
 </div>

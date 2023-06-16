@@ -21,7 +21,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -46,9 +45,7 @@ import {MatButtonModule} from "@angular/material/button";
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule,
-    MatButtonModule
-
+    BrowserAnimationsModule
   ],
   providers: [AppListComponent,
               SelectorService,

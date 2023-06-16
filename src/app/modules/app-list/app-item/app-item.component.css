@@ -5,82 +5,88 @@
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.3rem rgba(83, 35, 35, 0.438);
   background-color: rgba(255, 255, 255, 0.774);
-  width: 17rem;
-  height: 10.5rem;
+  width: 18rem;
+  height: 9.5rem;
   cursor: pointer;
   transition: all 0.3s;
   display: flex;
 }
 
 .app-item.hovered {
-  opacity: 0.9;
-  transform: translateY(-5px);
-  box-shadow: 0.1rem 0.1rem 0.5rem rgba(83, 35, 35, 0.6);
+   opacity:.9; 
+   transform:translateY(-5px); 
+   box-shadow:.1rem .1rem .5rem rgba(83,35,35,.6);
 }
 
 .app-img {
-  width: 4rem;
-  height: 4rem;
+   width:6rem; 
+   height:auto; 
 }
 
 .app-info {
-  display: flex;
-  flex-direction: column;
+   display:flex; 
+   flex-direction:column;
 }
 
 .left-content {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+   display:flex;
+   flex-direction: column; 
+   justify-content: space-between;
+   justify-content: space-evenly;
+
+}
+
+.right-content {
+   display:flex;
+   flex-direction:column; 
+   justify-content:flex-start; 
+   align-items:flex-start;
+   margin-left:1rem; 
 }
 
 h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+   font-size:1.5rem; 
+   margin-bottom:.5rem;
 }
 
 p.rating {
-  font-size: 0.9rem;
-  margin-bottom: 0.2rem;
-  align-self: center;
+   font-size:.9rem; 
+   margin-bottom:.2rem;
 }
 
 p.description {
-  font-size: 0.85rem;
-  max-height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-grow: 1;
-  margin-left: 1rem;
-  white-space: pre-wrap;
+   font-size:.85rem; 
+   max-height:100%; 
+   overflow:hidden; 
+   text-overflow:ellipsis; 
+   white-space:normal;
+   margin-bottom: 0.2rem;
 }
 
 
 .rating {
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
+   display:flex; 
+   align-items:center;
+   justify-content: center;
 }
 
 .rating .star {
-  color: gold;
-  margin-right: 0.2rem;
+   color:gold; 
+   margin-right:.2rem;
 }
 .downloads img {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.3rem;
+   width:1rem; 
+   height:auto;
+   margin-left:.3rem;
 }
 
 .downloads {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+   display:flex; 
+   flex-wrap:nowrap; 
+   justify-content:center;
 }
 
-.app-title {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  align-self: center;
+.app-item .app-title {
+   font-size:1rem; 
+   font-weight:500
 }
