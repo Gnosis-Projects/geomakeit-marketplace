@@ -64,7 +64,7 @@ export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
-    const appListElement = createCustomElement(AppListComponent, { injector: this.injector });
+    const appListElement = createCustomElement(HomeComponent, { injector: this.injector });
     customElements.define('market-place', appListElement);
   }
 }
