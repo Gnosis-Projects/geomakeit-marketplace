@@ -33,6 +33,6 @@
 
 .active {
   border: 0.12rem solid rgb(241, 175, 227);
-  background-color: rgb(151, 27, 95);
-  color: white;
+  background-color: rgb(151, 27, 95) !important;
+  color: white !important;
 }
