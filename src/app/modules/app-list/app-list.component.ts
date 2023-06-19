@@ -49,7 +49,6 @@ export class AppListComponent implements OnInit {
       {
         next: (categories: Category[]) => {
           this.categories = categories;
-          console.log(this.categories)
           this.allGames = this.categories.flatMap(category=>category.games);
         },
         error: (error) => {

@@ -25,6 +25,40 @@
   background-size: cover;
 }
 
+@media (min-width: 400px) { 
+  .main {
+    margin-top: 50%;
+  }
+}
+@media (min-width: 576px) { 
+  .main {
+    margin-top: 46%;
+  }
+}
+
+@media (min-width: 768px) { 
+  .main {
+    margin-top: 30%;
+  }
+}
+
+@media (min-width: 992px) { 
+  .main {
+    margin-top: 24%; 
+  }
+}
+@media (min-width: 1200px) { 
+  .main {
+    margin-top: 20%;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1500px) { 
+  .main {
+    margin-top: 17%;
+  }
+}
+
  .footer {
   background-color: rgba(252, 252, 252, 0.884);
   font-size: 1.5rem;

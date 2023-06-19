@@ -1,11 +1,11 @@
-<div class="app-details">
+<div class="app-details" *ngIf="selectedApp">
   <div class="app-header">
     <img [src]="selectedApp.image_url" alt="app icon" class="app-icon">
     <div class="app-info"> 
       <h1>{{selectedApp.title}}</h1>
       <p>{{selectedApp.creator}}</p> 
-      <p>{{selectedApp.rating}} ★ {{selectedApp.downloads}}</p> 
-      <button>Download {{selectedApp.version}}</button>
+      <p>{{selectedApp.rating}} ★ {{selectedApp.downloads}} Downloads</p> 
+      <button>Download {{selectedApp.version}}Mb</button>
     </div>
   </div>
   <div class="app-description">
@@ -31,17 +31,17 @@
     <div class="app-reviews">
       <ul>
         <li *ngFor="let review of selectedApp.comments_ratings" class="review">
-          <p class="user">{{review.recid}}</p>
+          <h5 class="user">{{review.recid}}</h5> <!-- use h4 for the user name -->
+          <time class="date">{{review.date_submitted}}</time> <!-- use time for the date -->
           <div class="rating-container">
-            <span class="rating-number">{{review.rating}} </span>
+            <span class="rating-number"></span>
             <ngb-rating [(rate)]="review.rating" [max]="5" [readonly]="true"></ngb-rating>
           </div>
-          <p class="date">{{review.date_submitted}}</p>
-          <p class="comment">{{review.comment}}</p>
+          <p class="comment">{{review.comment}}</p> <!-- use p for the comment -->
         </li>
       </ul>
     </div>
-  </div>
+    
     
   <div style="width: 80%">
     <h2>Details</h2>
@@ -52,14 +52,12 @@
       <li>Developer: {{selectedApp.creator}}</li>
     </ul>
   </div>
-  <div class="app-permissions">
+  <!-- <div class="app-permissions">
     <h2>Permissions</h2>
     <ul>
-      <!-- add permissions here -->
-      <!-- <li *ngFor="let permission of selectedApp.permissions">• {{permission}}</li> -->
-      <li><p>den</p><p>exw</p><p>permissions</p><p>akoma</p></li>
+      <li *ngFor="let permission of selectedApp.permissions">• {{permission}}</li>
     </ul>
-  </div>
+  </div> -->
 
   <!-- add a button element with a click event that calls the goBack function -->
   <button class="back-button" (click)="goBack()">Back</button>

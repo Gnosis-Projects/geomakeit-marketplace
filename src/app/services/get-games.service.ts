@@ -21,7 +21,7 @@ export class GetGamesService {
     return this.http.get<Category[]>(this.baseUrl + '/ListByCategory');
   }
 
-  getGameDetails(id: number) {
-    return this.http.get(this.baseUrl + '/GetGameByID/' + id);
+  getGameDetails(id: number | null) {
+    return this.http.get(this.baseUrl + '/GetGameByID?id=' + id);
   }
 }

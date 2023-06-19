@@ -4,6 +4,7 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { Lightbox } from 'ngx-lightbox';
 import { GameDetails } from 'src/models/interfaces/game-details.interface';
 import { GetGamesService } from 'src/app/services/get-games.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class DetailsComponent implements OnInit {
  game_id!: number | null;
  selectedApp:any;
  lightboxImages = [];
+ detailsSubscription!: Subscription;
+ selectorSubscription!: Subscription;
 
  slideConfig = {
   slidesToShow: 3,
@@ -32,22 +35,28 @@ export class DetailsComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.appService.selectedApp$.subscribe({
-      next: (id: number | null) => {
-        console.log('next'); // add this console.log here
-        console.log(id); 
-        this.game_id = id; 
-        if (this.game_id) {
-          this.gameService.getGameDetails(this.game_id).subscribe((game: any) => { // game is typed as any
-            game.screenshots = JSON.parse(game.screenshots);
-            this.selectedApp = game;
-            console.log(this.selectedApp); 
-          });
-          
-        }
-      }
+    this.selectorSubscription = this.appService.selectedApp$.subscribe(app_id => {
+      this.game_id = app_id;
+      console.log(this.game_id)
+      this.getGameDetails(); 
+      console.log("NgOnInit executed")
     });
+
   } 
+  ngOnDestroy(): void {
+    this.detailsSubscription.unsubscribe();
+    this.selectorSubscription.unsubscribe();
+  }
+  getGameDetails(): void {
+    this.detailsSubscription = this.gameService.getGameDetails(this.game_id)
+      .subscribe(data => {
+        console.log("getGameDetails Started")
+        this.selectedApp = data;
+        console.log(this.selectedApp)
+        this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots);
+        this.prepareImages();
+      });
+  }
 
  openLightbox(index: number): void {
   this.lightbox.open(this.lightboxImages, index);
