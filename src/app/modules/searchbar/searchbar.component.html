@@ -1,10 +1,9 @@
-<!-- remove the clickOutside directive from the div element -->
 <div class="searchbar">
   <input #input type="text" [(ngModel)]="searchValue" (input)="filterApps()" (change)="onChange()" (click)="showDropdown = true" (keydown)="onKeydown($event)" placeholder="Search apps...">
   <button class="clear-button" (click)="clearSearch()"><i class="fa fa-times"></i></button>
   <ul class="dropdown-list" [hidden]="!showDropdown || !searchValue.trim()">
   <li *ngFor="let app of filteredApps; let i = index" [class.selected]="i === selectedIndex">
   <!-- use the focus event instead of the click event -->
-  <a (focus)="selectedIndex = i" (click)="onAppClick(app, $event)"><img src="{{app.image_url}}" alt="{{app.title}}"> {{app.title}}</a>   </li>
+  <a (focus)="selectedIndex = i" (click)="onAppClick(app, $event)"><img src="{{app.image_url}}" alt="{{app.title}}"> {{app.title}}<span style="align-self: center;font-size: 1rem;color: grey;margin-left: 0.2rem;">| {{app.category}}</span></a>   </li>
   </ul>
  </div>

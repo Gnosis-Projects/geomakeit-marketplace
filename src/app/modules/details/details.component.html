@@ -4,10 +4,14 @@
     <div class="app-info"> 
       <h1>{{selectedApp.title}}</h1>
       <p>{{selectedApp.creator}}</p> 
-      <p>{{selectedApp.rating}} ★ {{selectedApp.downloads}} Downloads</p> 
+      <div class="app-stats"> <!-- add this div to wrap the rating and downloads -->
+        <p style="margin-bottom: 0.5rem;">{{selectedApp.rating}} ★</p> <!-- add the reviews count here -->
+        <p>{{selectedApp.comments_ratings.length}} Reviews | {{selectedApp.downloads | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" src="./assets/img/app-items/downloads.png" alt="Download icon"></p> 
+      </div>
       <button>Download {{selectedApp.version}}Mb</button>
     </div>
   </div>
+  
   <div class="app-description">
     <h2>Description</h2>
     <p>{{selectedApp.description}}</p>
@@ -31,13 +35,13 @@
     <div class="app-reviews">
       <ul>
         <li *ngFor="let review of selectedApp.comments_ratings" class="review">
-          <h5 class="user">{{review.recid}}</h5> <!-- use h4 for the user name -->
-          <time class="date">{{review.date_submitted}}</time> <!-- use time for the date -->
+          <h5 class="user">{{review.recid}}</h5> 
           <div class="rating-container">
             <span class="rating-number"></span>
             <ngb-rating [(rate)]="review.rating" [max]="5" [readonly]="true"></ngb-rating>
           </div>
-          <p class="comment">{{review.comment}}</p> <!-- use p for the comment -->
+          <p class="comment">{{review.comment}}</p>
+          <time class="date">{{review.date_submitted}}</time>
         </li>
       </ul>
     </div>

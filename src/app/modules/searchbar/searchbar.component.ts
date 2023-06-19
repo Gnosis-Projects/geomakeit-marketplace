@@ -1,6 +1,7 @@
 import { Component, OnInit, Directive, Output, EventEmitter, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Game_List } from 'src/models/interfaces/game-list.interface';
 import { SelectorService } from 'src/app/services/selector.service'; // import the service
+import { GetGamesService } from 'src/app/services/get-games.service';
 
 // searchbar.component.ts
 @Component({
@@ -17,13 +18,16 @@ export class SearchbarComponent implements OnInit {
  private _selectedIndex: number = -1;
  @ViewChild('input') inputElement!: ElementRef;
 
- constructor(private selectorService: SelectorService) { } // inject the service
+ constructor(private selectorService: SelectorService,private getGamesService: GetGamesService) { } // inject the service
 
  ngOnInit(): void {
- this.filteredApps = this.games;
+  this.getGamesService.getGames().subscribe(games => {
+  this.games = games;
+  this.filteredApps = games;
+});
  }
 
-filterApps() {
+ filterApps() {
   // filter the games by name
   this.filteredApps = this.games.filter(game => game.title.toLowerCase().includes(this.searchValue.toLowerCase()));
   // sort the filtered games by match score
@@ -41,7 +45,6 @@ filterApps() {
     }
   });
 }
-
 
 getMatchScore(name: string, value: string): number {
  if (name.startsWith(value)) {
