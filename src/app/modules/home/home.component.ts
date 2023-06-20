@@ -1,8 +1,8 @@
-import {Component, Input, Signal} from '@angular/core';
+import {Component, Input, OnDestroy, Signal} from '@angular/core';
 import { AppListComponent } from '../app-list/app-list.component';
 import { SelectorService } from 'src/app/services/selector.service';
 import {CookieService} from "ngx-cookie-service";
-import {Subject} from "rxjs";
+import {Subject, takeUntil} from "rxjs";
 // import Input
 
 @Component({
@@ -10,7 +10,7 @@ import {Subject} from "rxjs";
  templateUrl: './home.component.html',
  styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnDestroy{
 
  @Input() token?: string;
  showList: boolean = true; // initial value
@@ -24,16 +24,19 @@ export class HomeComponent {
    if (this.token) {
      this.cookieService.set('token', this.token);
    }
-
  // subscribe to the showList$ observable from the service
-   this.selectorService.showList$.subscribe(value => {
+   this.selectorService.showList$.pipe(takeUntil(this.stop$)).subscribe(value => {
         this.showList = value;
    });
-
    console.log('token: ' + this.token)
  };
 
- onShowListChange(value: boolean) {
+ ngOnDestroy() {
+   this.stop$.next(true);
+   this.stop$.unsubscribe();
+ }
+
+  onShowListChange(value: boolean) {
  console.log('on show list change parent');
  this.showList = value;
  }

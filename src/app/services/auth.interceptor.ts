@@ -7,7 +7,6 @@ import {
 } from '@angular/common/http';
 import {Observable, take} from 'rxjs';
 import {Router} from "@angular/router";
-import {AuthService} from "./auth.service";
 import {CookieService} from "ngx-cookie-service";
 
 @Injectable()
@@ -15,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   requestWithAuth: any;
 
-  constructor(private router: Router, private authService: AuthService, private cookieService: CookieService) {}
+  constructor(private router: Router, private cookieService: CookieService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
