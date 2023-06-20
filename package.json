@@ -6,7 +6,8 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "bundle": "ng build --configuration production --output-hashing none && node marketplace-script-creator.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^15.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.3",
+    "concat": "^1.0.3",
     "jquery": "^3.7.0",
     "lodash": "^4.17.21",
     "loldash": "^9002.0.0",
