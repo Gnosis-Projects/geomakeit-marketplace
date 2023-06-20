@@ -21,6 +21,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [AppListComponent,
               SelectorService,
+              CookieService,
               {
                 provide: HTTP_INTERCEPTORS,
                 useClass: ErrorHandlerInterceptor,

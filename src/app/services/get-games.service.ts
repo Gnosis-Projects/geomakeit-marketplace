@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { Game_List } from 'src/models/interfaces/game-list.interface';
-import { Category } from 'src/models/interfaces/games-per-category.interface';
+import {Category, Game} from 'src/models/interfaces/games-per-category.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class GetGamesService {
     return this.http.get<Category[]>(this.baseUrl + '/ListByCategory');
   }
 
-  getGameDetails(id: number | null) {
-    return this.http.get(this.baseUrl + '/GetGameByID?id=' + id);
+  getGameDetails(id: number): Observable<Game> {
+    return this.http.get<Game>(this.baseUrl + '/GetGameByID?id=' + id);
   }
 }

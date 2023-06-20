@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class DetailsComponent implements OnInit {
 
  starRating = 0;
- game_id!: number | null;
+ game_id!: number = 0;
  selectedApp:any;
  lightboxImages = [];
  detailsSubscription!: Subscription;
@@ -31,16 +31,16 @@ export class DetailsComponent implements OnInit {
 
 
  constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService) {
-  
+
   }
- 
+
   ngOnInit(): void {
     this.selectorSubscription = this.appService.selectedApp$.subscribe(app_id => {
-      this.game_id = app_id;
-      this.getGameDetails(); 
+      this.game_id = app_id || 0;
+      this.getGameDetails();
     });
 
-  } 
+  }
   ngOnDestroy(): void {
     this.detailsSubscription.unsubscribe();
     this.selectorSubscription.unsubscribe();

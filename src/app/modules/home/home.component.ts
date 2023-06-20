@@ -16,6 +16,7 @@ export class HomeComponent {
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService) { } // inject the service
 
  ngOnInit(): void {
+
  // subscribe to the showList$ observable from the service
    this.selectorService.showList$.subscribe(value => {
         this.showList = value;
