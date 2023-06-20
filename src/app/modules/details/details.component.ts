@@ -37,9 +37,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.selectorSubscription = this.appService.selectedApp$.subscribe(app_id => {
       this.game_id = app_id;
-      console.log(this.game_id)
       this.getGameDetails(); 
-      console.log("NgOnInit executed")
     });
 
   } 
@@ -50,9 +48,7 @@ export class DetailsComponent implements OnInit {
   getGameDetails(): void {
     this.detailsSubscription = this.gameService.getGameDetails(this.game_id)
       .subscribe(data => {
-        console.log("getGameDetails Started")
         this.selectedApp = data;
-        console.log(this.selectedApp)
         this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots);
         this.prepareImages();
       });
@@ -62,7 +58,6 @@ export class DetailsComponent implements OnInit {
   this.lightbox.open(this.lightboxImages, index);
 }
 prepareImages(): void {
-  // Assuming selectedApp.screenshots is an array of image URLs
   this.lightboxImages = this.selectedApp.screenshots.map((url: string) => {
     return {
       src: url,
@@ -72,7 +67,6 @@ prepareImages(): void {
   });
 }
 
- // You can use these functions to control the carousel
  slickInit(e:any) {
   console.log('slick initialized');
  }

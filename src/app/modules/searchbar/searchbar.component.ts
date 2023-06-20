@@ -2,8 +2,8 @@ import { Component, OnInit, Directive, Output, EventEmitter, ElementRef, HostLis
 import { Game_List } from 'src/models/interfaces/game-list.interface';
 import { SelectorService } from 'src/app/services/selector.service'; // import the service
 import { GetGamesService } from 'src/app/services/get-games.service';
+import { Subscription } from 'rxjs';
 
-// searchbar.component.ts
 @Component({
  selector: 'app-searchbar',
  templateUrl: './searchbar.component.html',
@@ -18,7 +18,9 @@ export class SearchbarComponent implements OnInit {
  private _selectedIndex: number = -1;
  @ViewChild('input') inputElement!: ElementRef;
 
- constructor(private selectorService: SelectorService,private getGamesService: GetGamesService) { } // inject the service
+ private subscription!: Subscription;
+
+ constructor(private selectorService: SelectorService,private getGamesService: GetGamesService) { }
 
  ngOnInit(): void {
   this.getGamesService.getGames().subscribe(games => {
@@ -26,6 +28,10 @@ export class SearchbarComponent implements OnInit {
   this.filteredApps = games;
 });
  }
+ ngOnDestroy(): void {
+  console.log("hey bro i unsubed in the searchbar");
+  this.subscription.unsubscribe();
+}
 
  filterApps() {
   // filter the games by name

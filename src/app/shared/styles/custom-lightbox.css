@@ -1,0 +1,11 @@
+/* custom-lightbox.css */
+.cdk-overlay-container {
+    /* set the position to fixed */
+    position: fixed;
+  }
+  
+  .cdk-overlay-backdrop {
+    /* set the overflow to hidden */
+    overflow: hidden;
+  }
+  

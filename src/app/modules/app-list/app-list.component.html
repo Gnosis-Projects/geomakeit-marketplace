@@ -23,26 +23,3 @@
     </div>
   </ngx-slick-carousel>
 </div>
-<!-- <div *ngIf="activeCategory === ''">
-  <h3>Most downloaded</h3>
-  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let game of games$ | async" class="slide">
-      <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item>
-    </div>
-  </ngx-slick-carousel>
-</div> -->
-
-<!-- <div class="category-tags">
-  <button class="tags" mat-button [ngClass]="{'active': activeCategory === ''}" (click)="resetCategory()">Home</button>
-  <button class="tags" mat-button [ngClass]="{'active': activeCategory === category.category}" *ngFor="let category of categories" (click)="selectCategory(category)">{{category.category}}</button>
-</div>
-<ng-container *ngFor="let category of categories">
-  <div *ngIf="activeCategory === category.category">
-     <h3>{{category.category}}</h3>
-     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-       <div ngxSlickItem *ngFor="let game of selectedGames" class="slide">
-         <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item>
-       </div>
-     </ngx-slick-carousel>
-  </div>
-</ng-container> -->

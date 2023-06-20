@@ -22,7 +22,6 @@ import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchbarPipe,
     SearchbarComponent,
     TruncatePipe,
-    ShortNumbersPipe
+    ShortNumbersPipe,
       ],
   imports: [
     BrowserModule,
