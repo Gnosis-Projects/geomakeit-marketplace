@@ -12,10 +12,6 @@ export class AuthService {
      return this.cookieService.get('token') || '';
   }
 
-  setToken(token: string): void {
-    this.cookieService.set('token', token || '');
-  }
-
   logout() {
 
   }

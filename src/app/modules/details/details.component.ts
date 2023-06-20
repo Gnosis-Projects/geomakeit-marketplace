@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class DetailsComponent implements OnInit {
 
  starRating = 0;
- game_id!: number = 0;
+ game_id!: number;
  selectedApp:any;
  lightboxImages = [];
  detailsSubscription!: Subscription;
