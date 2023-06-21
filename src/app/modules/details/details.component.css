@@ -7,7 +7,7 @@
   width: 65%;
   background-color: white; 
   border-radius: 0.9rem;
-  box-shadow: 0 0 10px rgba(185, 108, 144, 0.301);
+  box-shadow: 0 0.03em 0.15em rgba(119, 88, 102, 0.301);
 }
 
 .app-header {
@@ -112,7 +112,7 @@
  justify-content:center; 
  border-radius:.5rem; 
  margin:.5rem; 
- box-shadow:0 .25em .5em rgba(97, 57, 57, 0.171); 
+ box-shadow:0 .05em .3em rgba(97, 57, 57, 0.171); 
  width:auto;  
  padding:.2rem;
 }
@@ -208,6 +208,6 @@ ngb-rating {
  cursor:pointer;
  position:fixed;
  bottom:8%;
- right:24%;
+ right:15%;
  z-index:1;
 }

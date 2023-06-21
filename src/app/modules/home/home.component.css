@@ -17,9 +17,9 @@
 
 .main {
   margin-top: 17%;
-  min-height: calc(100% - 20% - 5%);
+  min-height: calc(100% - 20% - 10%);
   font-size: 1.5rem;
-  margin-bottom: 2.7%;
+  margin-bottom: 13%;
   flex-grow:1;
   background-image: url("../../../assets/img/main/Background-Map.png");
   background-size: cover;

@@ -45,6 +45,11 @@ export class DetailsComponent implements OnInit {
     this.detailsSubscription.unsubscribe();
     this.selectorSubscription.unsubscribe();
   }
+  
+  downloadApp(): void {
+    window.open(this.selectedApp.download_url, '_blank');
+  }
+
   getGameDetails(): void {
     this.detailsSubscription = this.gameService.getGameDetails(this.game_id)
       .subscribe(data => {
