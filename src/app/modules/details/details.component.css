@@ -162,6 +162,25 @@ ngb-rating {
  font-size:1em;
 }
 
+.show-all-button {
+  background-color: transparent;
+  color: #661f57;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  font-weight: 400;
+  font-size:medium;
+  width: fit-content;
+  align-self: center;
+}
+
+.show-all-button:hover {
+font-weight: 500;
+text-decoration: underline;
+}
+
+
 .app-details h2 {
  font-size:1.75rem; 
 }

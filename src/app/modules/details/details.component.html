@@ -6,9 +6,9 @@
       <p>{{selectedApp.creator}}</p> 
       <div class="app-stats">
         <p style="margin-bottom: 0.5rem;">{{selectedApp.rating}} ★</p>
-        <p>{{selectedApp.comments_ratings.length}} Reviews | {{selectedApp.downloads | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" src="./assets/img/app-items/downloads.png" alt="Download icon"></p> 
+        <p>{{selectedApp.comments_ratings!.length}} Reviews | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" src="./assets/img/app-items/downloads.png" alt="Download icon"></p> 
       </div>
-      <button (click)="downloadApp()">Download {{selectedApp.version}}Mb</button>
+      <button (click)="downloadApp()">Download {{selectedApp.size}}Mb</button>
     </div>
   </div>
   
@@ -34,7 +34,8 @@
   <div style="width: 80%">
     <div class="app-reviews">
       <ul style="flex-direction: column;">
-        <li *ngFor="let review of selectedApp.comments_ratings" class="review">
+        <!-- Use a slice pipe to show only the first three reviews -->
+        <li *ngFor="let review of selectedApp.comments_ratings | slice:0:3" class="review">
           <p class="user">{{review.username}}</p> 
           <div class="rating-container">
             <span class="rating-number"></span>
@@ -44,29 +45,25 @@
           <p class="comment">{{review.comment}}</p>
         </li>
       </ul>
+      <!-- Add a button to show all reviews in a modal -->
+      <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">View all reviews</button>
     </div>
     
     
   <div style="width: 80%">
     <h2>Details</h2>
     <ul>
-      <li>Size: NoSize</li>
+      <li>Size: {{selectedApp.size}}Mb</li>
       <li>Version: {{selectedApp.version}}</li>
       <li>Category: {{selectedApp.category}}</li>
       <li>Developer: {{selectedApp.creator}}</li>
     </ul>
   </div>
-  <div style="color: white;">.
-  </div>
   <div style="color: white;">.</div>
-  <!-- <div class="app-permissions">
-    <h2>Permissions</h2>
-    <ul>
-      <li *ngFor="let permission of selectedApp.permissions">• {{permission}}</li>
-    </ul>
-  </div> -->
+  <div style="color: white;">.</div>
 
   <!-- add a button element with a click event that calls the goBack function -->
   <button class="back-button" (click)="goBack()">Back</button>
 
 </div>
+

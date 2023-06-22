@@ -1,0 +1,17 @@
+ <h2 style="color: #661f57;margin-top: 1rem; display: flex; justify-content: center;">All Reviews</h2>
+ <div class="app-reviews">
+   <ul style="flex-direction: column;">
+     <li *ngFor="let review of data.reviews" class="review">
+       <p class="user">{{review.username}}</p> 
+       <div class="rating-container">
+         <span class="rating-number"></span>
+         <ngb-rating [(rate)]="review.rating" [max]="5" [readonly]="true"></ngb-rating>
+         <time class="date">{{review.date_submitted | date:'dd/MM/yyyy'}}</time>
+       </div>
+       <p class="comment">{{review.comment}}</p>
+     </li>
+   </ul>
+ </div>
+ <div style="display: flex;justify-content: center; margin-bottom: 1rem;">
+    <button class="close-button" (click)="close('OK')">Close</button>
+ </div>

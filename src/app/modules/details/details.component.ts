@@ -5,6 +5,9 @@ import { Lightbox } from 'ngx-lightbox';
 import { GameDetails } from 'src/models/interfaces/game-details.interface';
 import { GetGamesService } from 'src/app/services/get-games.service';
 import { Subscription } from 'rxjs';
+// Import the MatDialog service and the ReviewsModalComponent
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewsModalComponent } from './reviews-modal/reviews-modal.component';
 
 
 @Component({
@@ -16,10 +19,11 @@ export class DetailsComponent implements OnInit {
 
  starRating = 0;
  game_id!: number;
- selectedApp:any;
- lightboxImages = [];
+ selectedApp!:GameDetails;
  detailsSubscription!: Subscription;
  selectorSubscription!: Subscription;
+ lightboxImages: Array<{ src: string; caption: string; thumb: string; }> = [];
+
 
  slideConfig = {
   slidesToShow: 3,
@@ -29,8 +33,8 @@ export class DetailsComponent implements OnInit {
 
  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
-
- constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService) {
+ // Inject the MatDialog service in the constructor
+ constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService, public dialog: MatDialog) {
 
   }
 
@@ -54,8 +58,10 @@ export class DetailsComponent implements OnInit {
     this.detailsSubscription = this.gameService.getGameDetails(this.game_id)
       .subscribe(data => {
         this.selectedApp = data;
-        this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots);
-        this.prepareImages();
+        if (this.selectedApp && this.selectedApp.screenshots) {
+          this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots.join(",")); // This will not throw an error
+        }
+                this.prepareImages();
       });
   }
 
@@ -63,13 +69,15 @@ export class DetailsComponent implements OnInit {
   this.lightbox.open(this.lightboxImages, index);
 }
 prepareImages(): void {
-  this.lightboxImages = this.selectedApp.screenshots.map((url: string) => {
-    return {
-      src: url,
-      caption: 'Image caption',
-      thumb: url,
-    };
-  });
+  if (this.selectedApp && this.selectedApp.screenshots) {
+    this.lightboxImages = this.selectedApp.screenshots.map((url: string) => {
+      return {
+        src: url,
+        caption: 'Image caption',
+        thumb: url,
+      };
+    }) as { src: string; caption: string; thumb: string; }[];
+  }
 }
 
  slickInit(e:any) {
@@ -91,4 +99,12 @@ prepareImages(): void {
  goBack() {
   this.appService.setShowList(true);
 }
+
+showAllReviews(): void {
+  const dialogRef = this.dialog.open(ReviewsModalComponent, {
+    width: '80%',
+    data: { reviews: this.selectedApp.comments_ratings }
+  });
+}
+
 }

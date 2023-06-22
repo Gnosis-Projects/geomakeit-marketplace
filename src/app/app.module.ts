@@ -23,6 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
+// Import the MatDialogModule and the ReviewsModalComponent
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReviewsModalComponent } from './modules/details/reviews-modal/reviews-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     SearchbarComponent,
     TruncatePipe,
     ShortNumbersPipe,
+    ReviewsModalComponent
       ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     AppListComponent,
@@ -63,7 +68,7 @@ import {AuthInterceptor} from "./services/auth.interceptor";
       multi: true
     }
   ],
-  bootstrap: []
+  bootstrap: [],
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
