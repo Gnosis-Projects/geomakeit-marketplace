@@ -12,7 +12,7 @@ export interface GameDetails {
   category?: string;
   version?: string;
   download_url?: string;
-  screenshots?: string[];
+  screenshots?: any;
   downloads?: number;
   comments_ratings?: CommentRating[];
   size?: number; 

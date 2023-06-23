@@ -59,7 +59,7 @@ export class DetailsComponent implements OnInit {
       .subscribe(data => {
         this.selectedApp = data;
         if (this.selectedApp && this.selectedApp.screenshots) {
-          this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots.join(",")); // This will not throw an error
+          this.selectedApp.screenshots = JSON.parse(this.selectedApp.screenshots);
         }
                 this.prepareImages();
       });
