@@ -23,9 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
-// Import the MatDialogModule and the ReviewsModalComponent
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './modules/details/reviews-modal/reviews-modal.component';
+
 
 @NgModule({
   declarations: [

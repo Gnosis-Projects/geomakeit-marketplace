@@ -78,11 +78,14 @@ export class AppListComponent implements OnInit {
     this.selectedGames = category.games;
   }
 
+  
+
   slideConfig = {
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     dots: false,
     infinite: false,
+    rows: 2,
     responsive: [
       {
         breakpoint: 1400,
@@ -109,4 +112,5 @@ export class AppListComponent implements OnInit {
       }
     ]
   };
+  
 }
