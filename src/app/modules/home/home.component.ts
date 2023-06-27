@@ -3,6 +3,7 @@ import { AppListComponent } from '../app-list/app-list.component';
 import { SelectorService } from 'src/app/services/selector.service';
 import {CookieService} from "ngx-cookie-service";
 import {Subject, takeUntil} from "rxjs";
+import {environment} from "../../../environments/environment";
 // import Input
 
 @Component({
@@ -15,6 +16,7 @@ export class HomeComponent implements OnDestroy{
  @Input() token?: string;
  showList: boolean = true; // initial value
  stop$: Subject<boolean> = new Subject<boolean>();
+ baseUrl = environment.assetsUrl;
 
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService, private cookieService: CookieService) {
 
