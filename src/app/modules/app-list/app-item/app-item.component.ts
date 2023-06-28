@@ -1,5 +1,5 @@
+// this is app-item component 
 import { Component, Input, OnInit } from '@angular/core';
-import { Game_List } from 'src/models/interfaces/game-list.interface';
 import { Game } from 'src/models/interfaces/games-per-category.interface';
 
 @Component({
@@ -11,14 +11,18 @@ export class AppItemComponent implements OnInit {
   @Input() app!: Game;
   public isHovered: boolean = false;
   public showFullDescription: boolean = false;
+  defaultImage: string = "http://studio.geomakeit.gr/be/storage/game_image/game_19/geomakeit-studio.png";
 
   constructor() { }
 
   ngOnInit(): void {
-    // Do something with the app data
   }
 
   toggleHover() {
     this.isHovered = !this.isHovered;
+  }
+
+  onError(event: any) {
+    event.target.src = this.defaultImage;
   }
 }

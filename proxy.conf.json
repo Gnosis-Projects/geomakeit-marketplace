@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://176.223.139.84:81/geomakeit_store",
+      "target": "https://studio.geomakeit.gr/geomakeit_store",
       "secure": false,
       "changeOrigin": true
     }

@@ -1,7 +1,6 @@
-
 <div class="app-item" [class.hovered]="isHovered" (mouseover)="toggleHover()" (mouseout)="toggleHover()">
   <div class="left-content">
-    <img [src]="app.image_url" alt="App icon" class="app-img">
+    <img [src]="app.image_url ? app.image_url : defaultImage" alt="App icon" class="app-img" (error)="onError($event)">
   </div>
   <div class="right-content"> 
     <div class="app-title">{{ app.title }}</div> 
@@ -15,23 +14,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- <div class="row app-item mt-5 gx-2 " [class.hovered]="isHovered" (mouseover)="toggleHover()" (mouseout)="toggleHover()">
-  <div class="col-6">
-    <div>
-      <img [src]="app.image_url" alt="App icon" style="width: 100%; height: 100%">
-    </div>
-      <h3 class="app-title">{{ app.title }}</h3>
-      <p class="rating">
-        {{ app.rating }}
-        <span class="star">★</span>
-        <span class="downloads">{{ app.downloads | shorten }}<img src="./assets/img/app-items/downloads.png" alt="Download icon"></span>
-      </p>
-  </div>
-  <div class="col-6">
-    <p class="description">{{ app.description | truncate:100 }}</p>
-  </div>
-</div> -->
-
