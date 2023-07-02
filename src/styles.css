@@ -1,33 +1,35 @@
+/*
 @import "~bootstrap/dist/css/bootstrap.css";
+*/
 
-.slick-prev:before, .slick-next:before { 
-    font-family: "slick"; 
-    font-size: 4rem; 
-    line-height: 0.35; 
-    color: rgb(97, 8, 42); 
-    opacity: 0.85; 
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
-}   
-
-  
-.slick-prev:before { 
-    content: "‹"; 
-}
-[dir="rtl"] .slick-prev:before { 
-    content: "›"; 
+.slick-prev:before, .slick-next:before {
+    font-family: "slick";
+    font-size: 4rem;
+    line-height: 0.35;
+    color: rgb(97, 8, 42);
+    opacity: 0.85;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-[dir="rtl"] .slick-next { 
-    left: auto; 
-    top: 6rem; 
-    right: auto; 
+
+.slick-prev:before {
+    content: "‹";
 }
-.slick-next:before { 
-    content: "›"; 
+[dir="rtl"] .slick-prev:before {
+    content: "›";
 }
-[dir="rtl"] .slick-next:before { 
-    content: "‹"; 
+
+[dir="rtl"] .slick-next {
+    left: auto;
+    top: 6rem;
+    right: auto;
+}
+.slick-next:before {
+    content: "›";
+}
+[dir="rtl"] .slick-next:before {
+    content: "‹";
 }
 
 html, body { height: 100%; }
