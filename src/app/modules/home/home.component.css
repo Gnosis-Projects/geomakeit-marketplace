@@ -21,8 +21,8 @@
   font-size: 1.5rem;
   margin-bottom: 13%;
   flex-grow:1;
-  background-image: url("../../../assets/img/main/Background-Map.png");
-  background-size: cover;
+  /*background-image: url("../../../assets/img/main/Background-Map.png");*/
+  /*background-size: cover;*/
 }
 
 @media (min-width: 400px) {

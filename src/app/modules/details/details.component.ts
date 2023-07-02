@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 // Import the MatDialog service and the ReviewsModalComponent
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './reviews-modal/reviews-modal.component';
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class DetailsComponent implements OnInit {
  detailsSubscription!: Subscription;
  selectorSubscription!: Subscription;
  lightboxImages: Array<{ src: string; caption: string; thumb: string; }> = [];
+ downloadIcon = '/' + environment.drupalUrl + 'assets/img/app-items/downloads.png';
 
 
  slideConfig = {
@@ -49,7 +51,7 @@ export class DetailsComponent implements OnInit {
     this.detailsSubscription.unsubscribe();
     this.selectorSubscription.unsubscribe();
   }
-  
+
   downloadApp(): void {
     window.open(this.selectedApp.download_url, '_blank');
   }

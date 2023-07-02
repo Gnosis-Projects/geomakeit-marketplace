@@ -4,6 +4,7 @@ import { SelectorService } from 'src/app/services/selector.service';
 import {CookieService} from "ngx-cookie-service";
 import {Subject, takeUntil} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {TranslateService} from "@ngx-translate/core";
 // import Input
 
 @Component({
@@ -14,11 +15,16 @@ import {environment} from "../../../environments/environment";
 export class HomeComponent implements OnDestroy{
 
  @Input() token?: string;
+ @Input() language?: string;
  showList: boolean = true; // initial value
  stop$: Subject<boolean> = new Subject<boolean>();
- baseUrl = environment.assetsUrl;
+ baseUrl = environment.drupalUrl;
+ backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: cover"
 
- constructor(public appListComponent: AppListComponent, private selectorService: SelectorService, private cookieService: CookieService) {
+ constructor(public appListComponent: AppListComponent, private selectorService: SelectorService,
+             private cookieService: CookieService, private translate: TranslateService) {
+   this.translate.use(this.language || 'el');
+   localStorage.setItem('language', this.language || 'el')
 
  } // inject the service
 
@@ -30,7 +36,7 @@ export class HomeComponent implements OnDestroy{
    this.selectorService.showList$.pipe(takeUntil(this.stop$)).subscribe(value => {
         this.showList = value;
    });
-   console.log('token: ' + this.token)
+   console.log('token: ' + this.token + ' - '+ 'language: ' + this.language)
  };
 
  ngOnDestroy() {

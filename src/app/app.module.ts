@@ -17,7 +17,7 @@ import { SearchbarComponent } from './modules/searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +25,14 @@ import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './modules/details/reviews-modal/reviews-modal.component';
+import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {environment} from "../environments/environment";
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/' + environment.drupalUrl + 'assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -51,7 +58,15 @@ import { ReviewsModalComponent } from './modules/details/reviews-modal/reviews-m
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'el',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
     AppListComponent,

@@ -1,6 +1,7 @@
-// this is app-item component 
+// this is app-item component
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/models/interfaces/games-per-category.interface';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-app-item',
@@ -11,7 +12,8 @@ export class AppItemComponent implements OnInit {
   @Input() app!: Game;
   public isHovered: boolean = false;
   public showFullDescription: boolean = false;
-  defaultImage: string = "http://studio.geomakeit.gr/be/storage/game_image/game_19/geomakeit-studio.png";
+  defaultImage: string = "https://studio.geomakeit.gr/be/storage/game_image/game_19/geomakeit-studio.png";
+  downLoadImage = environment.drupalUrl + 'assets/img/app-items/downloads.png';
 
   constructor() { }
 

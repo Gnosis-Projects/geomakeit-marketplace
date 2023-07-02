@@ -2,14 +2,14 @@
   <div class="left-content">
     <img [src]="app.image_url ? app.image_url : defaultImage" alt="App icon" class="app-img" (error)="onError($event)">
   </div>
-  <div class="right-content"> 
-    <div class="app-title">{{ app.title }}</div> 
+  <div class="right-content">
+    <div class="app-title">{{ app.title }}</div>
     <p class="description">{{ app.description | truncate:100 }}</p>
-    <div class="app-info"> 
+    <div class="app-info">
       <p class="rating">
         {{ app.rating }}
         <span class="star">★</span>
-        <span class="downloads">{{ app.downloads | shorten }}<img style="width: 0.8rem; height: 1rem;" src="./assets/img/app-items/downloads.png" alt="Download icon"></span>
+        <span class="downloads">{{ app.downloads | shorten }}<img style="width: 0.8rem; height: 1rem;" [src]="downLoadImage" alt="Download icon"></span>
       </p>
     </div>
   </div>

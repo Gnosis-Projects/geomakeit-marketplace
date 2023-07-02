@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    assetsUrl: '../marketplace/assets/',
-  backEndUrl: 'http://176.223.139.84:81/geomakeit_store/api'
+    backEndUrl: 'https://studio.geomakeit.gr/geomakeit_store/api',
+    drupalUrl: 'themes/drupalet_blumax/angular/marketplace/'
 };
 

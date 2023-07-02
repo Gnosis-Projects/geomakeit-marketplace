@@ -1,22 +1,22 @@
 <div class="app-details" *ngIf="selectedApp">
   <div class="app-header">
     <img [src]="selectedApp.image_url" alt="app icon" class="app-icon">
-    <div class="app-info"> 
+    <div class="app-info">
       <h1>{{selectedApp.title}}</h1>
-      <p>{{selectedApp.creator}}</p> 
+      <p>{{selectedApp.creator}}</p>
       <div class="app-stats">
         <p style="margin-bottom: 0.5rem;">{{selectedApp.rating}} ★</p>
-        <p>{{selectedApp.comments_ratings!.length}} Reviews | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" src="./assets/img/app-items/downloads.png" alt="Download icon"></p> 
+        <p>{{selectedApp.comments_ratings!.length}} Reviews | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
       </div>
       <button (click)="downloadApp()">Download {{selectedApp.size}}Mb</button>
     </div>
   </div>
-  
+
   <div class="app-description">
     <h2>Description</h2>
     <p>{{selectedApp.description}}</p>
   </div>
-  
+
 <div class="app-screenshots">
   <h2>Screenshots</h2>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
@@ -26,8 +26,8 @@
   </ngx-slick-carousel>
 </div>
 
-    
-   
+
+
    <div style="width: 80%">
     <h2>Reviews</h2>
   </div>
@@ -36,7 +36,7 @@
       <ul style="flex-direction: column;">
         <!-- Use a slice pipe to show only the first three reviews -->
         <li *ngFor="let review of selectedApp.comments_ratings | slice:0:3" class="review">
-          <p class="user">{{review.username}}</p> 
+          <p class="user">{{review.username}}</p>
           <div class="rating-container">
             <span class="rating-number"></span>
             <ngb-rating [(rate)]="review.rating" [max]="5" [readonly]="true"></ngb-rating>
@@ -48,8 +48,8 @@
       <!-- Add a button to show all reviews in a modal -->
       <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">View all reviews</button>
     </div>
-    
-    
+
+
   <div style="width: 80%">
     <h2>Details</h2>
     <ul>

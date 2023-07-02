@@ -1,5 +1,5 @@
 <div class="category-tags">
-  <button class="tags"  [class.active]="activeCategory === ''" (click)="resetCategory()">Home</button>
+  <button class="tags"  [class.active]="activeCategory === ''" (click)="resetCategory()">{{'home' | translate}}</button>
   <button class="tags"  [class.active]="activeCategory === selected.category"
           *ngFor="let selected of categories" (click)="selectCategory(selected)">{{selected.category}}
   </button>
