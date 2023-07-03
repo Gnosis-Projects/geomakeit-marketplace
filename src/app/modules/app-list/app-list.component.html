@@ -16,7 +16,7 @@
 </ng-container>
 
 <div *ngIf="activeCategory === ''">
-  <h3>{{'All Games' | translate}} </h3>
+  <h3>{{'all.games' | translate}} </h3>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
     <div ngxSlickItem *ngFor="let game of allGames" class="slide">
       <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item>
