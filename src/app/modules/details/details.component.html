@@ -6,19 +6,19 @@
       <p>{{selectedApp.creator}}</p>
       <div class="app-stats">
         <p style="margin-bottom: 0.5rem;">{{selectedApp.rating}} ★</p>
-        <p>{{selectedApp.comments_ratings!.length}} Reviews | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
+        <p>{{selectedApp.comments_ratings!.length}} {{'Reviews' | translate}} | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
       </div>
-      <button (click)="downloadApp()">Download {{selectedApp.size}}Mb</button>
+      <button (click)="downloadApp()">{{'Download' | translate}} {{selectedApp.size}}Mb</button>
     </div>
   </div>
 
   <div class="app-description">
-    <h2>Description</h2>
+    <h2>{{'Description' | translate}}</h2>
     <p>{{selectedApp.description}}</p>
   </div>
 
 <div class="app-screenshots">
-  <h2>Screenshots</h2>
+  <h2>{{'Screenshots' | translate}}</h2>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
    <div ngxSlickItem *ngFor="let screenshot of selectedApp.screenshots; let i = index" class="slide">
     <img [src]="screenshot" alt="app screenshot" (click)="openLightbox(i)">
@@ -29,7 +29,7 @@
 
 
    <div style="width: 80%">
-    <h2>Reviews</h2>
+    <h2>{{'Reviews' | translate}}</h2>
   </div>
   <div style="width: 80%">
     <div class="app-reviews">
@@ -46,24 +46,22 @@
         </li>
       </ul>
       <!-- Add a button to show all reviews in a modal -->
-      <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">View all reviews</button>
+      <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">{{'View all reviews' | translate}}</button>
     </div>
 
 
   <div style="width: 80%">
-    <h2>Details</h2>
+    <h2>{{'Details' | translate}}</h2>
     <ul>
-      <li>Size: {{selectedApp.size}}Mb</li>
-      <li>Version: {{selectedApp.version}}</li>
-      <li>Category: {{selectedApp.category}}</li>
-      <li>Developer: {{selectedApp.creator}}</li>
+      <li>{{'Size' | translate}}: {{selectedApp.size}}Mb</li>
+      <li>{{'Version' | translate}}: {{selectedApp.version}}</li>
+      <li>{{'Category' | translate}}: {{selectedApp.category! | translate}}</li>
+      <li>{{'Developer' | translate}}: {{selectedApp.creator}}</li>
     </ul>
   </div>
-  <div style="color: white;">.</div>
-  <div style="color: white;">.</div>
 
   <!-- add a button element with a click event that calls the goBack function -->
-  <button class="back-button" (click)="goBack()">Back</button>
+  <button class="back-button" (click)="goBack()">{{'Back' | translate}}</button>
 
 </div>
 
