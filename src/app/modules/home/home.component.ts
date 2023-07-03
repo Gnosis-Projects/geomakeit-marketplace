@@ -19,7 +19,7 @@ export class HomeComponent implements OnDestroy{
  showList: boolean = true; // initial value
  stop$: Subject<boolean> = new Subject<boolean>();
  baseUrl = environment.drupalUrl;
- backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: cover"
+ backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: auto; background-repeat: repeat-x";
 
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService,
              private cookieService: CookieService, private translate: TranslateService) {
@@ -45,7 +45,6 @@ export class HomeComponent implements OnDestroy{
  }
 
   onShowListChange(value: boolean) {
- console.log('on show list change parent');
  this.showList = value;
  }
 }
