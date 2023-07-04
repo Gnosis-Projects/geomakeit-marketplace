@@ -1,7 +1,9 @@
 <div class="app-details" *ngIf="selectedApp">
   <div class="app-header">
-    <img [src]="selectedApp.image_url" alt="app icon" class="app-icon">
-    <div class="app-info">
+    <img [src]="selectedApp.image_url ? selectedApp.image_url : defaultAppIcon" alt="app icon" class="app-icon">
+    <ng-template #defaultIcon>
+      <img [src]="defaultAppIcon" alt="default icon" class="app-icon">
+    </ng-template>    <div class="app-info">
       <h1>{{selectedApp.title}}</h1>
       <p>{{selectedApp.creator}}</p>
       <div class="app-stats">
