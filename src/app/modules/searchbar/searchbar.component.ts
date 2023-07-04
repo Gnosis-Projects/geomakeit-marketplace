@@ -13,6 +13,7 @@ import { Game_List } from 'src/models/interfaces/game-list.interface';
 import { SelectorService } from 'src/app/services/selector.service'; // import the service
 import { GetGamesService } from 'src/app/services/get-games.service';
 import {Subject, Subscription, takeUntil} from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
  selector: 'app-searchbar',
@@ -28,7 +29,9 @@ export class SearchbarComponent implements OnInit, OnDestroy {
  stop$: Subject<boolean> = new Subject<boolean>();
  private _selectedIndex: number = -1;
  @ViewChild('input') inputElement!: ElementRef;
+ defaultImage = '/' + environment.drupalUrl + 'assets/img/app-items/default.logo.png';
 
+ 
  private subscription!: Subscription;
 
  constructor(private selectorService: SelectorService,private getGamesService: GetGamesService) { }
