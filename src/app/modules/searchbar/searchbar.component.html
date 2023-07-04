@@ -1,5 +1,5 @@
 <div class="searchbar">
-  <input #input type="text" [(ngModel)]="searchValue" (input)="filterApps()" (change)="onChange()" (click)="showDropdown = true" (keydown)="onKeydown($event)" placeholder="{{'Search apps...' | translate}}">
+  <input #input type="text" [(ngModel)]="searchValue" (input)="filterApps()" (change)="onChange()" (click)="showDropdown = true" (keydown)="onKeydown($event)" placeholder="{{'search.apps' | translate}}">
   <button class="clear-button" (click)="clearSearch()"><i class="fa fa-times"></i></button>
   <ul class="dropdown-list" [hidden]="!showDropdown || !searchValue.trim()">
   <li *ngFor="let app of filteredApps; let i = index" [class.selected]="i === selectedIndex">
