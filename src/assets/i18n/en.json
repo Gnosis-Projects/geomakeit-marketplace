@@ -1,3 +1,18 @@
 {
-  "home": "Home"
+  "home" : "Home",
+  "all.games": "All Games",
+  "search.apps" : "Search apps...",
+  "reviews" : "Reviews",
+  "download" : "Download",
+  "description" : "Description",
+  "screenshots" : "Screenshots",
+  "details" : "Details",
+  "back" : "Back",
+  "view.all.reviews" : "View all reviews",
+  "all.reviews" : "All Reviews",
+  "size" : "Size",
+  "version" : "Version",
+  "developer" : "Developer",
+  "category" : "Category",
+  "close" : "Close"
 }

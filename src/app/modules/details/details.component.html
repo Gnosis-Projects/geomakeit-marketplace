@@ -1,24 +1,26 @@
 <div class="app-details" *ngIf="selectedApp">
   <div class="app-header">
-    <img [src]="selectedApp.image_url" alt="app icon" class="app-icon">
-    <div class="app-info">
+    <img [src]="selectedApp.image_url ? selectedApp.image_url : defaultAppIcon" alt="app icon" class="app-icon">
+    <ng-template #defaultIcon>
+      <img [src]="defaultAppIcon" alt="default icon" class="app-icon">
+    </ng-template>    <div class="app-info">
       <h1>{{selectedApp.title}}</h1>
       <p>{{selectedApp.creator}}</p>
       <div class="app-stats">
         <p style="margin-bottom: 0.5rem;">{{selectedApp.rating}} ★</p>
-        <p>{{selectedApp.comments_ratings!.length}} Reviews | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
+        <p>{{selectedApp.comments_ratings!.length}} {{'reviews' | translate}} | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
       </div>
-      <button (click)="downloadApp()">Download {{selectedApp.size}}Mb</button>
+      <button (click)="downloadApp()">{{'download' | translate}} {{selectedApp.size}}Mb</button>
     </div>
   </div>
 
   <div class="app-description">
-    <h2>Description</h2>
+    <h2>{{'description' | translate}}</h2>
     <p>{{selectedApp.description}}</p>
   </div>
 
 <div class="app-screenshots">
-  <h2>Screenshots</h2>
+  <h2>{{'screenshots' | translate}}</h2>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
    <div ngxSlickItem *ngFor="let screenshot of selectedApp.screenshots; let i = index" class="slide">
     <img [src]="screenshot" alt="app screenshot" (click)="openLightbox(i)">
@@ -29,12 +31,11 @@
 
 
    <div style="width: 80%">
-    <h2>Reviews</h2>
+    <h2>{{'reviews' | translate}}</h2>
   </div>
   <div style="width: 80%">
     <div class="app-reviews">
       <ul style="flex-direction: column;">
-        <!-- Use a slice pipe to show only the first three reviews -->
         <li *ngFor="let review of selectedApp.comments_ratings | slice:0:3" class="review">
           <p class="user">{{review.username}}</p>
           <div class="rating-container">
@@ -45,25 +46,20 @@
           <p class="comment">{{review.comment}}</p>
         </li>
       </ul>
-      <!-- Add a button to show all reviews in a modal -->
-      <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">View all reviews</button>
+      <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">{{'view.all.reviews' | translate}}</button>
     </div>
 
 
   <div style="width: 80%">
-    <h2>Details</h2>
+    <h2>{{'details' | translate}}</h2>
     <ul>
-      <li>Size: {{selectedApp.size}}Mb</li>
-      <li>Version: {{selectedApp.version}}</li>
-      <li>Category: {{selectedApp.category}}</li>
-      <li>Developer: {{selectedApp.creator}}</li>
+      <li>• {{'size' | translate}}: {{selectedApp.size}}Mb</li>
+      <li>• {{'version' | translate}}: {{selectedApp.version}}</li>
+      <li>• {{'category' | translate}}: {{selectedApp.category! | translate}}</li>
+      <li>• {{'developer' | translate}}: {{selectedApp.creator}}</li>
     </ul>
   </div>
-  <div style="color: white;">.</div>
-  <div style="color: white;">.</div>
 
-  <!-- add a button element with a click event that calls the goBack function -->
-  <button class="back-button" (click)="goBack()">Back</button>
+  <button class="back-button" (click)="goBack()">{{'back' | translate}}</button>
 
 </div>
-

@@ -25,6 +25,7 @@ export class DetailsComponent implements OnInit {
  selectorSubscription!: Subscription;
  lightboxImages: Array<{ src: string; caption: string; thumb: string; }> = [];
  downloadIcon = '/' + environment.drupalUrl + 'assets/img/app-items/downloads.png';
+ defaultAppIcon = '/' + environment.drupalUrl + 'assets/img/app-items/default.logo.png';
 
 
  slideConfig = {

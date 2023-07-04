@@ -1,12 +1,12 @@
 <div class="category-tags">
   <button class="tags"  [class.active]="activeCategory === ''" (click)="resetCategory()">{{'home' | translate}}</button>
   <button class="tags"  [class.active]="activeCategory === selected.category"
-          *ngFor="let selected of categories" (click)="selectCategory(selected)">{{selected.category}}
+          *ngFor="let selected of categories" (click)="selectCategory(selected)">{{selected.category | translate}}
   </button>
 </div>
 <ng-container *ngFor="let category of categories">
   <div *ngIf="activeCategory === category.category">
-     <h3>{{category.category}}</h3>
+     <h3>{{category.category | translate}}</h3>
      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
        <div ngxSlickItem *ngFor="let game of selectedGames" class="slide">
          <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item>
@@ -16,7 +16,7 @@
 </ng-container>
 
 <div *ngIf="activeCategory === ''">
-  <h3>All Games</h3>
+  <h3>{{'all.games' | translate}} </h3>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
     <div ngxSlickItem *ngFor="let game of allGames" class="slide">
       <app-app-item [app]="game" (click)="selectApp(game.game_id)"></app-app-item>

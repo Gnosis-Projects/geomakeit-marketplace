@@ -9,7 +9,8 @@
   overflow-x: auto;
   white-space: nowrap;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .tags {
@@ -20,13 +21,13 @@
   border-radius: 8px;
   color: rgb(138, 33, 98);
   background-color: #52073c00;
-  cursor: pointer; /* Add cursor style */
-  transition: background-color 0.3s, opacity 0.3s; /* Add transition */
+  cursor: pointer; 
+  transition: background-color 0.3s, opacity 0.3s; 
 }
 
 .tags:hover {
   background-color: rgb(155, 29, 98);
-  opacity: 0.8; /* Reduce opacity when hovered */
+  opacity: 0.8;
   color: white;
 }
 

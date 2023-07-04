@@ -1,8 +1,4 @@
 <div class="container">
-  <!--<div class="header">
-    <img [src]="baseUrl + 'assets/img/header/Header.jpg'" alt="Banner" class="header-img">
-    <img [src]="baseUrl + 'assets/img/GM_Studio_Logo.png'" width="400" alt="studio-logo" class="logo-img" />
-  </div>-->
   <div class="main" [style]="backgroundMapImage">
     <app-searchbar></app-searchbar>
     <app-app-list (showListChange)="onShowListChange($event)" *ngIf="showList"></app-app-list>

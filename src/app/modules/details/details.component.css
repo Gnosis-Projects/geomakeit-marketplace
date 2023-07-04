@@ -103,6 +103,7 @@
 .app-reviews {
  display:flex; 
  flex-direction:column; 
+ margin-bottom: 1.5rem;
 }
 
 .review {
@@ -186,9 +187,11 @@ text-decoration: underline;
 }
 
 .app-details ul {
+  margin-top: 1rem;
  list-style:none; 
  display:flex; 
  flex-wrap:wrap; 
+ flex-direction: row;
 }
 
 .app-details li {
