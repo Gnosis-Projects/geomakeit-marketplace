@@ -47,6 +47,21 @@
         </li>
       </ul>
       <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">{{'view.all.reviews' | translate}}</button>
+      <form (submit)="submitReview()">
+    <div class="mb-3">
+      <label for="reviewInput" class="form-label">Write a review</label>
+      <section class="rating-container">
+        <ngb-rating [(rate)]="rating" [max]="5" [readonly]="false" class="user-rating"></ngb-rating>
+      </section>
+
+      <input type="text" class="form-control" id="reviewInput" [(ngModel)]="comment" name="comment">
+    </div>
+  <div class="text-end">
+    <button type="submit" class="submit">Submit</button>
+  </div>
+</form>
+
+
     </div>
   </div>
 

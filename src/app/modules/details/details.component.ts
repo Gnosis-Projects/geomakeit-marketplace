@@ -9,6 +9,8 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './reviews-modal/reviews-modal.component';
 import {environment} from "../../../environments/environment";
+import { RatingService } from 'src/app/services/rating.service';
+import { Rating } from 'src/models/interfaces/rating.interface';
 
 
 @Component({
@@ -18,6 +20,8 @@ import {environment} from "../../../environments/environment";
 })
 export class DetailsComponent implements OnInit {
 
+ rating: number = 0;
+ comment: string = '';
  starRating = 0;
  game_id!: number;
  selectedApp!:GameDetails;
@@ -37,7 +41,7 @@ export class DetailsComponent implements OnInit {
  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
  // Inject the MatDialog service in the constructor
- constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService, public dialog: MatDialog) {
+ constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService,private ratingService: RatingService, public dialog: MatDialog) {
 
   }
 
@@ -109,5 +113,24 @@ showAllReviews(): void {
     data: { reviews: this.selectedApp.comments_ratings }
   });
 }
+submitReview() {
+  // Check if the comment and rating are not empty
+  if (this.selectedApp.game_id && this.rating) {
+    // Create a rating object with the comment and rating
+    let rating: Rating = {
+      game_id: this.selectedApp.game_id, // Use the id of the selected app
+      rating: this.rating,
+      comment: this.comment
+    };
+    // Call the addRating method of the RatingService with the rating object
+    this.ratingService.addRating(rating).subscribe(
+      data => {
+        console.log(data);
+        this.comment = '';
+        this.rating = 0;
+      }
+    );
 
+    }
+  }
 }

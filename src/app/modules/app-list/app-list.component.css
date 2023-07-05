@@ -16,17 +16,17 @@
 .tags {
   margin: 0.5rem;
   text-align: center;
-  border: 0.01rem solid rgba(110, 16, 90, 0.726);
-  box-shadow: 2px 2px 4px 1px rgba(51, 13, 45, 0.274);
+  border: 0.01rem solid rgba(121, 62, 108, 0.726);
+  box-shadow: 2px 2px 4px 1px rgba(51, 13, 45, 0.082);
   border-radius: 8px;
-  color: rgb(138, 33, 98);
+  color: rgb(133, 46, 100);
   background-color: #52073c00;
   cursor: pointer; 
   transition: background-color 0.3s, opacity 0.3s; 
 }
 
 .tags:hover {
-  background-color: rgb(155, 29, 98);
+  background-color: rgb(139, 40, 95);
   opacity: 0.8;
   color: white;
 }
