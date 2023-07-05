@@ -14,29 +14,32 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class HomeComponent implements OnDestroy{
 
- @Input() token?: string;
+ @Input() jwt?: string;
  @Input() language?: string;
  showList: boolean = true; // initial value
  stop$: Subject<boolean> = new Subject<boolean>();
  baseUrl = environment.drupalUrl;
- backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: auto; background-repeat: repeat-x";
+ backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: 100% 100%; background-repeat: no-repeat";
 
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService,
              private cookieService: CookieService, private translate: TranslateService) {
-   this.translate.use(this.language || 'el');
-   localStorage.setItem('language', this.language || 'el')
 
  } // inject the service
 
  ngOnInit(): void {
-   if (this.token) {
-     this.cookieService.set('token', this.token);
+   this.translate.setDefaultLang('el');
+   this.translate.use(this.language || 'el');
+   localStorage.setItem('language', this.language || 'el')
+   console.log(this.language, this.jwt)
+   if (this.jwt) {
+
+     this.cookieService.set('jwt', btoa(this.jwt));
    }
  // subscribe to the showList$ observable from the service
    this.selectorService.showList$.pipe(takeUntil(this.stop$)).subscribe(value => {
         this.showList = value;
    });
-   console.log('token: ' + this.token + ' - '+ 'language: ' + this.language)
+   console.log('jwt: ' + this.jwt + ' - '+ 'language: ' + this.language)
  };
 
  ngOnDestroy() {

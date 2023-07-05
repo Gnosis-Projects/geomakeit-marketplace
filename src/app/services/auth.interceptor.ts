@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     // add Bearer token in every request //
-    const token: string = this.cookieService.get('token');
+    const token: string = atob(this.cookieService.get('token'));
     this.requestWithAuth = request.clone({
       setHeaders: {
         Authorization: 'Bearer ' + token,

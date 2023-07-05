@@ -11,8 +11,8 @@ export class AppItemComponent implements OnInit {
   @Input() app!: Game;
   public isHovered: boolean = false;
   public showFullDescription: boolean = false;
-  defaultImage = '/' + environment.drupalUrl + 'assets/img/app-items/default.logo.png';
   downLoadImage = '/' + environment.drupalUrl + 'assets/img/app-items/downloads.png';
+  defaultImage = '/' + environment.drupalUrl + 'assets/img/app-items/default.logo.png';
 
   constructor() { }
 
