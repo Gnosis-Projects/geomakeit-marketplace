@@ -28,7 +28,7 @@ export class HomeComponent implements OnDestroy{
  } // inject the service
 
  ngOnInit(): void {
-   this.toastrService.success('hello')
+
    this.translate.setDefaultLang('el');
    this.translate.use(this.language || 'el');
    localStorage.setItem('language', this.language || 'el')
