@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse
 import {Observable, of, throwError} from "rxjs";
 import { catchError } from "rxjs/operators";
 import { ToastrService } from "ngx-toastr";
+import {SelectorService} from "./selector.service";
 
 @Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
@@ -17,21 +18,18 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
 
           if (error.status === 401) { // if user is not authenticated, redirect to login form
             errorMessage.message = 'Unauthorized user!'
-            this.toastrService.error(errorMessage.message);
           }
           if (error.status >= 500) { // if caught a server error
             errorMessage.message = 'There is a server error. Try again  later'
-            this.toastrService.error(errorMessage.message);
           }
           if (error.status === 404) { // if result not founded
             errorMessage.message = 'There are no results!'
-            this.toastrService.error(errorMessage.message);
           }
           if (error.status === 400) { // error response
             errorMessage.message = 'There is an error. Check your request!'
-            this.toastrService.error(errorMessage.message);
           }
 
+          this.toastrService.error(errorMessage.message);
           return throwError(errorMessage.message);
       })
     );

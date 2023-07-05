@@ -5,6 +5,7 @@ import {CookieService} from "ngx-cookie-service";
 import {Subject, takeUntil} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {TranslateService} from "@ngx-translate/core";
+import {ToastrService} from "ngx-toastr";
 // import Input
 
 @Component({
@@ -22,17 +23,17 @@ export class HomeComponent implements OnDestroy{
  backgroundMapImage = "background-image: url(/" + environment.drupalUrl + "assets/img/main/Background-Map.png); background-size: 100% 100%; background-repeat: no-repeat";
 
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService,
-             private cookieService: CookieService, private translate: TranslateService) {
+             private cookieService: CookieService, private translate: TranslateService, private toastrService: ToastrService) {
 
  } // inject the service
 
  ngOnInit(): void {
+   this.toastrService.success('hello')
    this.translate.setDefaultLang('el');
    this.translate.use(this.language || 'el');
    localStorage.setItem('language', this.language || 'el')
-   console.log(this.language, this.jwt)
-   if (this.jwt) {
 
+   if (this.jwt) {
      this.cookieService.set('jwt', btoa(this.jwt));
    }
  // subscribe to the showList$ observable from the service

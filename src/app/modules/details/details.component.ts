@@ -4,7 +4,7 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { Lightbox } from 'ngx-lightbox';
 import { GameDetails } from 'src/models/interfaces/game-details.interface';
 import { GetGamesService } from 'src/app/services/get-games.service';
-import { Subscription } from 'rxjs';
+import {Subscription, take} from 'rxjs';
 // Import the MatDialog service and the ReviewsModalComponent
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './reviews-modal/reviews-modal.component';
@@ -123,7 +123,7 @@ submitReview() {
       comment: this.comment
     };
     // Call the addRating method of the RatingService with the rating object
-    this.ratingService.addRating(rating).subscribe(
+    this.ratingService.addRating(rating).pipe(take(1)).subscribe(
       data => {
         console.log(data);
         this.comment = '';

@@ -19,7 +19,7 @@ import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { ShortNumbersPipe } from './shared/pipes/short-numbers.pipe';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './services/error-handler.interceptor';
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule, ToastrService} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
@@ -71,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     AppListComponent,
     SelectorService,
+    ToastrService,
     CookieService,
     {
       provide: HTTP_INTERCEPTORS,
