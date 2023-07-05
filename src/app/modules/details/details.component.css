@@ -181,6 +181,23 @@ font-weight: 500;
 text-decoration: underline;
 }
 
+.user-rating {
+  /* Set the font size of the stars */
+  font-size: 3rem;
+}
+
+.submit{
+  margin-top: 0.25rem;
+  background-color:#661f57;
+  color:white;
+  font-size: medium;
+  border-radius:.5rem;
+  cursor:pointer;
+  width: 5rem;
+  height: 2.2rem;
+  border: none;
+ }
+
 
 .app-details h2 {
  font-size:1.75rem; 
