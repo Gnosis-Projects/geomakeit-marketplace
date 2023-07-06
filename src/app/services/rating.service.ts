@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+// Import CookieService
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { Rating } from 'src/models/interfaces/rating.interface';
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,15 @@ export class RatingService {
 
   baseUrl = environment.backEndUrl;
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-  });
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   addRating(rating: Rating): Observable<any> {
-    return this.http.post<any>(this.baseUrl + '/Game/AddRating', rating, { headers: this.headers });
+    let jwt = this.cookieService.get('jwt');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + jwt
+    });
+    console.log((this.baseUrl + '/api/Game/AddRating', rating, { headers: headers }))
+    return this.http.post<any>(this.baseUrl + '/api/Game/AddRating', rating, { headers: headers });
   }
 }

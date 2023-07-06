@@ -174,6 +174,7 @@ ngb-rating {
   font-size:medium;
   width: fit-content;
   align-self: center;
+  margin-bottom: 1.5rem;
 }
 
 .show-all-button:hover {
@@ -210,7 +211,7 @@ textarea.form-control:focus::placeholder {
   font-size: medium;
   border-radius:.5rem;
   cursor:pointer;
-  width: 5rem;
+  width: auto;
   height: 2.2rem;
   border: none;
   float: right;

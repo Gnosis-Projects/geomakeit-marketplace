@@ -25,7 +25,7 @@ export class HomeComponent implements OnDestroy{
  constructor(public appListComponent: AppListComponent, private selectorService: SelectorService,
              private cookieService: CookieService, private translate: TranslateService, private toastrService: ToastrService) {
 
- } // inject the service
+ } 
 
  ngOnInit(): void {
 

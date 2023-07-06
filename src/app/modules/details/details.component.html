@@ -49,15 +49,15 @@
       <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">{{'view.all.reviews' | translate}}</button>
       <form (submit)="submitReview()">
         <div class="mb-3">
-          <label for="reviewInput" class="h4">Rate this App</label>
+          <label for="reviewInput" class="h4">{{'rate.this.app' | translate}}</label>
           <section class="rating-container">
             <ngb-rating [(rate)]="rating" [max]="5" [readonly]="false" class="user-rating" (rateChange)="showComment()"></ngb-rating>
           </section>
     
           <div *ngIf="commentVisible">
-            <p style="font-size: medium; font-weight: 480;">Leave a review</p>
-            <textarea class="form-control" id="reviewInput" style="height: 4.5rem;" [(ngModel)]="comment" name="comment" rows="4" cols="40" placeholder="Did you enjoy {{selectedApp.title}}?"></textarea>
-            <button type="submit" class="submit">Submit</button>
+            <p style="font-size: medium; font-weight: 480;">{{"leave.a.review" | translate}}</p>
+            <textarea class="form-control" id="reviewInput" style="height: 4.5rem;" [(ngModel)]="comment" name="comment" rows="4" cols="40" placeholder="{{'did.you.enjoy' | translate}} {{selectedApp.title}}?"></textarea>
+            <button type="submit" class="submit">{{"post" |translate}}</button>
           </div>
         </div>
     </form>

@@ -5,12 +5,12 @@ import { Lightbox } from 'ngx-lightbox';
 import { GameDetails } from 'src/models/interfaces/game-details.interface';
 import { GetGamesService } from 'src/app/services/get-games.service';
 import {Subscription, take} from 'rxjs';
-// Import the MatDialog service and the ReviewsModalComponent
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewsModalComponent } from './reviews-modal/reviews-modal.component';
 import {environment} from "../../../environments/environment";
 import { RatingService } from 'src/app/services/rating.service';
 import { Rating } from 'src/models/interfaces/rating.interface';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -41,8 +41,12 @@ export class DetailsComponent implements OnInit {
 
  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
- // Inject the MatDialog service in the constructor
- constructor(private appService: SelectorService,private lightbox: Lightbox,private gameService: GetGamesService,private ratingService: RatingService, public dialog: MatDialog) {
+ constructor(private appService: SelectorService,
+             private lightbox: Lightbox,
+             private gameService: GetGamesService,
+             private ratingService: RatingService,
+             public dialog: MatDialog,
+             private toastr: ToastrService) {
 
   }
 
@@ -119,20 +123,18 @@ showAllReviews(): void {
   });
 }
 submitReview() {
-  // Check if the comment and rating are not empty
   if (this.selectedApp.game_id && this.rating) {
-    // Create a rating object with the comment and rating
     let rating: Rating = {
-      game_id: this.selectedApp.game_id, // Use the id of the selected app
+      game_id: this.selectedApp.game_id,
       rating: this.rating,
       comment: this.comment
     };
-    // Call the addRating method of the RatingService with the rating object
     this.ratingService.addRating(rating).pipe(take(1)).subscribe(
       data => {
         console.log(data);
         this.comment = '';
         this.rating = 0;
+        this.toastr.success('Your review has been submitted', 'Thank you!');
       }
     );
 

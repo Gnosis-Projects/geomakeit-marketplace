@@ -1,5 +1,12 @@
 {
   "home" : "Home",
+  "Puzzle" : "Puzzle",
+  "Quiz" : "Quiz",
+  "Fight" : "Fight",
+  "General" : "General",
+  "Strategy" : "Strategy",
+  "Tour" : "Tour",
+  "Education" : "Education",
   "all.games": "All Games",
   "search.apps" : "Search apps...",
   "reviews" : "Reviews",
@@ -14,5 +21,9 @@
   "version" : "Version",
   "developer" : "Developer",
   "category" : "Category",
-  "close" : "Close"
+  "close" : "Close",
+  "rate.this.app":"Rate this App",
+  "leave.a.review" : "Leave a Review",
+  "did.you.enjoy" : "Did you enjoy",
+  "post":"Post"
 }
