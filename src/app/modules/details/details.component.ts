@@ -20,6 +20,7 @@ import { Rating } from 'src/models/interfaces/rating.interface';
 })
 export class DetailsComponent implements OnInit {
 
+ commentVisible: boolean = false;
  rating: number = 0;
  comment: string = '';
  starRating = 0;
@@ -61,6 +62,10 @@ export class DetailsComponent implements OnInit {
     window.open(this.selectedApp.download_url, '_blank');
   }
 
+
+showComment() {
+  this.commentVisible = true;
+}
   getGameDetails(): void {
     this.detailsSubscription = this.gameService.getGameDetails(this.game_id)
       .subscribe(data => {

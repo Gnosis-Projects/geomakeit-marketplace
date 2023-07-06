@@ -186,6 +186,23 @@ text-decoration: underline;
   font-size: 3rem;
 }
 
+textarea.form-control:focus {
+  outline: 1px solid rgba(119, 28, 128, 0.322);
+  box-shadow: none;
+  border-color: rgba(241, 88, 221, 0.295);
+}
+
+textarea.form-control::placeholder {
+  color: grey;
+  font-size: small;
+}
+
+textarea.form-control:focus::placeholder {
+  opacity: 0;
+}
+
+
+
 .submit{
   margin-top: 0.25rem;
   background-color:#661f57;
@@ -196,6 +213,8 @@ text-decoration: underline;
   width: 5rem;
   height: 2.2rem;
   border: none;
+  float: right;
+  margin-top: 0.6rem;
  }
 
 
