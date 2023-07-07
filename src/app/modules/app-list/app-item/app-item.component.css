@@ -54,16 +54,6 @@ p.rating {
    margin-bottom:.2rem;
 }
 
-.app-item .app-desc {
-   font-size: 0.80rem;
-   max-height:100%;
-   overflow:hidden;
-   text-overflow:ellipsis;
-   white-space:normal;
-   margin-bottom: 0.2rem;
-}
-
-
 
 .rating {
    display:flex;

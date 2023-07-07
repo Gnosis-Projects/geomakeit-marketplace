@@ -80,7 +80,6 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
   onAppClick(app: Game_List, event: Event) {
-    console.log("click")
     event.preventDefault();
     this.selectorService.selectApp(app.game_id);
     this.selectorService.setShowList(false);
@@ -89,6 +88,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
   onBlur() {
+    console.log("called onblur")
       this.showDropdown = false;
   }
 
@@ -109,30 +109,24 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
 onKeydown(event: KeyboardEvent) {
-  // handle the arrow keys, the enter key and the escape key
   switch (event.key) {
     case 'ArrowDown':
-      // increment the selectedIndex if it is less than the length of the filteredApps
       if (this.selectedIndex < this.filteredApps.length - 1) {
         this.selectedIndex++;
       }
       break;
     case 'ArrowUp':
-      // decrement the selectedIndex if it is greater than -1
       if (this.selectedIndex > -1) {
         this.selectedIndex--;
       }
       break;
     case 'Enter':
-      // trigger the onAppClick method for the selected option if it exists
       if (this.selectedIndex > -1 && this.selectedIndex < this.filteredApps.length) {
         let app = this.filteredApps[this.selectedIndex];
-        // use event instead of new Event('dummy')
         this.onAppClick(app, event);
       }
       break;
     case 'Escape':
-      // hide the dropdown list
       this.showDropdown = false;
       break;
     default:
