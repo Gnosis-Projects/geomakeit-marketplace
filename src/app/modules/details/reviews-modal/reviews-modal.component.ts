@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CommentRating } from 'src/models/interfaces/game-details.interface';
 
 @Component({
   selector: 'app-reviews-modal',
   templateUrl: './reviews-modal.component.html',
-  styleUrls: ['./reviews-modal.component.css']
+  styleUrls: ['./reviews-modal.component.css'],
+  encapsulation: ViewEncapsulation.Emulated // add this option
 })
 export class ReviewsModalComponent {
 

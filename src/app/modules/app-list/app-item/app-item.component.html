@@ -7,7 +7,7 @@
     <p class="description app-desc">{{ app.description | truncate:100 }}</p>
     <div class="app-info">
       <p class="rating">
-        {{ app.rating }}
+        {{app.rating | nodecimals}}
         <span class="star">★</span>
         <span class="downloads">{{ app.downloads | shorten }}<img style="width: 0.8rem; height: 1rem;" [src]="downLoadImage" alt="Download icon"></span>
       </p>

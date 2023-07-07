@@ -11,6 +11,7 @@ import {environment} from "../../../environments/environment";
 import { RatingService } from 'src/app/services/rating.service';
 import { Rating } from 'src/models/interfaces/rating.interface';
 import { ToastrService } from 'ngx-toastr';
+import { LoginStatusService } from 'src/app/services/loginstatus.service';
 
 
 @Component({
@@ -28,6 +29,8 @@ export class DetailsComponent implements OnInit {
  selectedApp!:GameDetails;
  detailsSubscription!: Subscription;
  selectorSubscription!: Subscription;
+ loginstatusSubscription!:Subscription;
+ jwtStatus: boolean = false;
  lightboxImages: Array<{ src: string; caption: string; thumb: string; }> = [];
  downloadIcon = '/' + environment.drupalUrl + 'assets/img/app-items/downloads.png';
  defaultAppIcon = '/' + environment.drupalUrl + 'assets/img/app-items/default.logo.png';
@@ -46,7 +49,9 @@ export class DetailsComponent implements OnInit {
              private gameService: GetGamesService,
              private ratingService: RatingService,
              public dialog: MatDialog,
-             private toastr: ToastrService) {
+             private toastr: ToastrService,
+             private loginStatus: LoginStatusService
+             ) {
 
   }
 
@@ -54,18 +59,24 @@ export class DetailsComponent implements OnInit {
     this.selectorSubscription = this.appService.selectedApp$.subscribe(app_id => {
       this.game_id = app_id || 0;
       this.getGameDetails();
+      this.subscribeToLoginstatus();
     });
 
   }
   ngOnDestroy(): void {
     this.detailsSubscription.unsubscribe();
     this.selectorSubscription.unsubscribe();
+    this.loginstatusSubscription.unsubscribe();
   }
 
   downloadApp(): void {
     window.open(this.selectedApp.download_url, '_blank');
   }
-
+  subscribeToLoginstatus(): void {
+    this.loginstatusSubscription = this.loginStatus.jwtStatus$.subscribe(status => {
+      this.jwtStatus = status;
+    });
+  }
 
 showComment() {
   this.commentVisible = true;
@@ -119,6 +130,7 @@ prepareImages(): void {
 showAllReviews(): void {
   const dialogRef = this.dialog.open(ReviewsModalComponent, {
     width: '80%',
+    height: '85%',
     data: { reviews: this.selectedApp.comments_ratings }
   });
 }
@@ -131,10 +143,10 @@ submitReview() {
     };
     this.ratingService.addRating(rating).pipe(take(1)).subscribe(
       data => {
-        console.log(data);
         this.comment = '';
         this.rating = 0;
         this.toastr.success('Your review has been submitted', 'Thank you!');
+        this.getGameDetails();
       }
     );
 

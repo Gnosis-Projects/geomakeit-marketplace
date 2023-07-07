@@ -19,9 +19,8 @@ export class RatingService {
     let jwt = this.cookieService.get('jwt');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + jwt
+      'Authorization': 'bearer ' + jwt
     });
-    console.log((this.baseUrl + '/api/Game/AddRating', rating, { headers: headers }))
-    return this.http.post<any>(this.baseUrl + '/api/Game/AddRating', rating, { headers: headers });
+    return this.http.post<any>(this.baseUrl + '/Game/AddRating', rating, { headers: headers });
   }
 }

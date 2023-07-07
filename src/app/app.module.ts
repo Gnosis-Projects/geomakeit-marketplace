@@ -28,6 +28,7 @@ import { ReviewsModalComponent } from './modules/details/reviews-modal/reviews-m
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {environment} from "../environments/environment";
+import { NodecimalsPipe } from './shared/pipes/nodecimals.pipe';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchbarComponent,
     TruncatePipe,
     ShortNumbersPipe,
-    ReviewsModalComponent
+    ReviewsModalComponent,
+    NodecimalsPipe
       ],
   imports: [
     BrowserModule,
