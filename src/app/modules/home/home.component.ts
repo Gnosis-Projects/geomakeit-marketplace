@@ -27,7 +27,7 @@ export class HomeComponent implements OnDestroy{
              private cookieService: CookieService, private translate: TranslateService,
              private toastrService: ToastrService,private tokenStatus: LoginStatusService) {
 
- } 
+ }
 
  ngOnInit(): void {
 
@@ -45,7 +45,6 @@ export class HomeComponent implements OnDestroy{
    this.selectorService.showList$.pipe(takeUntil(this.stop$)).subscribe(value => {
         this.showList = value;
    });
-   console.log('jwt: ' + this.jwt + ' - '+ 'language: ' + this.language)
  };
 
  ngOnDestroy() {

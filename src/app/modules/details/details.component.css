@@ -5,7 +5,7 @@
   margin: 0 auto;
   margin-top: 5rem;
   width: 65%;
-  background-color: white; 
+  background-color: white;
   border-radius: 0.9rem;
   box-shadow: 0 0.03em 0.15em rgba(119, 88, 102, 0.301);
 }
@@ -15,7 +15,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 80%;  
+  width: 80%;
   flex-direction: row-reverse;
 }
 
@@ -42,12 +42,13 @@
   margin-right: 1rem;
 }
 
-.app-info button {
+.app-info a {
   padding: 0.625rem 1.25rem;
   border: none;
   border-radius: 0.625rem;
   background-color: green;
   color: white;
+  text-decoration: none;
 }
 
 .app-description {
@@ -56,71 +57,71 @@
 }
 
 .app-description h2 {
-  font-size:1.75rem; 
+  font-size:1.75rem;
 }
 
 .app-description p {
- font-size:1.125rem; 
+ font-size:1.125rem;
 }
 
 .app-screenshots {
- width:80%; 
+ width:80%;
 }
 
 .app-screenshots h2 {
- font-size:1.75rem; 
+ font-size:1.75rem;
 }
 
 .carousel {
- width:92%; 
- margin:0 auto; 
- z-index:1; 
- margin-bottom:1.5rem; 
+ width:92%;
+ margin:0 auto;
+ z-index:1;
+ margin-bottom:1.5rem;
 }
 
 .slide {
- margin:0.5rem; 
- border-radius:0.5rem; 
- box-shadow:0 .25em .5em rgba(0,0,0,.1); 
+ margin:0.5rem;
+ border-radius:0.5rem;
+ box-shadow:0 .25em .5em rgba(0,0,0,.1);
 }
 
 .slide img {
- width:100%; 
- height:auto; 
- object-fit:contain; 
- border-radius:inherit; 
- cursor:pointer; 
+ width:100%;
+ height:auto;
+ object-fit:contain;
+ border-radius:inherit;
+ cursor:pointer;
 }
 
 .app-reviews h2 {
- font-size:1.75rem; 
+ font-size:1.75rem;
 }
 
 .filters {
- display:flex; 
+ display:flex;
 }
 
 .app-reviews {
- display:flex; 
- flex-direction:column; 
+ display:flex;
+ flex-direction:column;
  margin-bottom: 1.5rem;
 }
 
 .review {
- display:flex; 
- flex-direction:column; 
- align-items:flex-start; 
- justify-content:center; 
- border-radius:.5rem; 
- margin:.5rem; 
- box-shadow:0 .05em .3em rgba(97, 57, 57, 0.171); 
- width:auto;  
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ justify-content:center;
+ border-radius:.5rem;
+ margin:.5rem;
+ box-shadow:0 .05em .3em rgba(97, 57, 57, 0.171);
+ width:auto;
  padding:.2rem;
 }
 
 .review .user {
  margin-top:.2rem;
- margin-left:.2rem;  
+ margin-left:.2rem;
  font-weight:.3rem;
  margin-bottom:0.1rem
 
@@ -131,8 +132,8 @@
 }
 
 .review .date {
- font-style:italic;  
- font-size:.8rem;  
+ font-style:italic;
+ font-size:.8rem;
  color:#a9a9a9;
  margin-left:.2rem;
 }
@@ -158,8 +159,8 @@
 }
 
 
-ngb-rating {  
- color:#388521;  
+ngb-rating {
+ color:#388521;
  font-size:1em;
 }
 
@@ -220,41 +221,41 @@ textarea.form-control:focus::placeholder {
 
 
 .app-details h2 {
- font-size:1.75rem; 
+ font-size:1.75rem;
 }
 
 .app-details ul {
   margin-top: 1rem;
- list-style:none; 
- display:flex; 
- flex-wrap:wrap; 
+ list-style:none;
+ display:flex;
+ flex-wrap:wrap;
  flex-direction: row;
 }
 
 .app-details li {
- font-size:1.125rem; 
- margin-right:1.25rem; 
- margin-bottom:0.625rem; 
+ font-size:1.125rem;
+ margin-right:1.25rem;
+ margin-bottom:0.625rem;
 }
 
 .app-permissions {
- width:80%; 
+ width:80%;
 }
 
 .app-permissions h2 {
- font-size:1.75rem; 
+ font-size:1.75rem;
 }
 
 .app-permissions ul {
- list-style:none; 
- display:flex; 
- flex-wrap:wrap; 
+ list-style:none;
+ display:flex;
+ flex-wrap:wrap;
 }
 
 .app-permissions li {
- font-size:1.125rem; 
- margin-right:1.25rem; 
- margin-bottom:0.625rem; 
+ font-size:1.125rem;
+ margin-right:1.25rem;
+ margin-bottom:0.625rem;
 
 }
 

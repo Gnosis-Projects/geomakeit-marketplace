@@ -56,7 +56,8 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selectorSubscription = this.appService.selectedApp$.subscribe(app_id => {
+    this.selectorSubscription = this.appService.selectedApp$
+      .pipe(take(1)).subscribe(app_id => {
       this.game_id = app_id || 0;
       this.getGameDetails();
       this.subscribeToLoginstatus();

@@ -3,14 +3,16 @@
     <img [src]="selectedApp.image_url ? selectedApp.image_url : defaultAppIcon" alt="app icon" class="app-icon">
     <ng-template #defaultIcon>
       <img [src]="defaultAppIcon" alt="default icon" class="app-icon">
-    </ng-template>    <div class="app-info">
+    </ng-template>
+    <div class="app-info">
       <h1>{{selectedApp.title}}</h1>
       <p>{{selectedApp.creator}}</p>
       <div class="app-stats">
         <p style="margin-bottom: 0.5rem;">{{selectedApp.rating | nodecimals}} ★</p>
         <p>{{selectedApp.comments_ratings!.length}} {{'reviews' | translate}} | {{selectedApp.downloads! | shorten }}<img style="margin-left: 0.2rem;margin-bottom: 0.2rem;width: 1.1rem; height: 1.3rem;" [src]="downloadIcon" alt="Download icon"></p>
       </div>
-      <button (click)="downloadApp()">{{'download' | translate}} {{selectedApp.size}}Mb</button>
+      <a role="button" [href]="this.selectedApp.download_url">{{'download' | translate}} {{selectedApp.size}}Mb</a>
+      <!--<button (click)="downloadApp()">{{'download' | translate}} {{selectedApp.size}}Mb</button>-->
     </div>
   </div>
 
@@ -47,13 +49,13 @@
         </li>
       </ul>
       <button *ngIf="selectedApp.comments_ratings!.length>3" class="show-all-button" (click)="showAllReviews()">{{'view.all.reviews' | translate}}</button>
-      <form (submit)="submitReview()" *ngIf="jwtStatus"> 
+      <form (submit)="submitReview()" *ngIf="jwtStatus">
         <div class="mb-3">
           <label for="reviewInput" class="h4">{{'rate.this.app' | translate}}</label>
           <section class="rating-container">
             <ngb-rating [(rate)]="rating" [max]="5" [readonly]="false" class="user-rating" (rateChange)="showComment()"></ngb-rating>
           </section>
-    
+
           <div *ngIf="commentVisible">
             <p style="font-size: medium; font-weight: 480;">{{"leave.a.review" | translate}}</p>
             <textarea class="form-control" id="reviewInput" style="height: 4.5rem;" [(ngModel)]="comment" name="comment" rows="4" cols="40" placeholder="{{'did.you.enjoy' | translate}} {{selectedApp.title}}?"></textarea>
